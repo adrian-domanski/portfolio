@@ -13,6 +13,8 @@ export const Button = styled.button.attrs({ className: "button" })`
     color: ${({ theme }) => theme.colors.primary};
     border: 1px solid ${({ theme }) => theme.colors.primary};
   }
+
+  ${props => props.center && "margin: 0 auto"};
 `
 
 export const SectionTitle = styled.h1`

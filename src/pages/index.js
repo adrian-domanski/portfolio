@@ -12,6 +12,8 @@ import {
   BiggerStyledSection,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
+import ContactForm from "../components/ContactForm"
+import { Link } from "gatsby"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
@@ -116,6 +118,39 @@ const StyledCard = styled.div`
   .card-text {
     font-size: 1.1rem;
     color: ${({ theme }) => theme.colors.darkerWhite};
+  }
+`
+
+const MyProjectsGrid = styled.div`
+  .my-project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    :not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    :nth-child(even) {
+      .my-project__img {
+        grid-column: 2 / 3;
+        grid-row: 1;
+      }
+
+      .my-project__info {
+        grid-column: 1 / 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  .my-project__info {
+    padding: 2rem;
+    background-color: ${({ theme }) => theme.colors.darkerGrey};
+  }
+
+  .my-project__info-title {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.colors.lightWhite};
   }
 `
 
@@ -238,6 +273,81 @@ const Home = () => {
           </div>
           <StyledButton className="button">Zobacz więcej</StyledButton>
         </BiggerStyledSection>
+      </DarkerSection>
+      <StyledSection>
+        <SectionTitle className="mb-6">Moje projekty</SectionTitle>
+
+        <MyProjectsGrid>
+          <div className="my-project">
+            <div className="my-project__img">
+              <StyledGatsbyImg
+                fluid={data.placeholderImage.childImageSharp.fluid}
+              />
+            </div>
+            <div className="my-project__info">
+              <h1 className="my-project__info-title">Plan Szkolny</h1>
+              <p className="my-project__info-short my-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+                quaerat velit amet tempore nostrum aliquid, repellendus eum
+                dolorem non quae?
+              </p>
+              <p className="has-text-primary">Szczegóły projektu...</p>
+            </div>
+          </div>
+
+          <div className="my-project">
+            <div className="my-project__img">
+              <StyledGatsbyImg
+                fluid={data.placeholderImage.childImageSharp.fluid}
+              />
+            </div>
+            <div className="my-project__info">
+              <h1 className="my-project__info-title">Plan Szkolny</h1>
+              <p className="my-project__info-short my-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+                quaerat velit amet tempore nostrum aliquid, repellendus eum
+                dolorem non quae?
+              </p>
+              <p className="has-text-primary">Szczegóły projektu...</p>
+            </div>
+          </div>
+
+          <div className="my-project">
+            <div className="my-project__img">
+              <StyledGatsbyImg
+                fluid={data.placeholderImage.childImageSharp.fluid}
+              />
+            </div>
+            <div className="my-project__info">
+              <h1 className="my-project__info-title">Plan Szkolny</h1>
+              <p className="my-project__info-short my-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
+                quaerat velit amet tempore nostrum aliquid, repellendus eum
+                dolorem non quae?
+              </p>
+              <p className="has-text-primary">Szczegóły projektu...</p>
+            </div>
+          </div>
+        </MyProjectsGrid>
+        <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+      </StyledSection>
+
+      <DarkerSection>
+        <StyledSection>
+          <SectionTitle>Kontakt</SectionTitle>
+          <Paragraph className="has-text-centered mb-6">
+            Masz pomysł na nowy projekt? Interesuje Cię współpraca? Informacje
+            kontaktowe znajdziesz{" "}
+            <Link
+              to="/kontakt"
+              className="has-text-primary has-text-weight-bold"
+            >
+              klikając tutaj
+            </Link>
+            . Możesz również napisać do mnie za pomocą poniższego formularza.
+          </Paragraph>
+          <ContactForm />
+        </StyledSection>
       </DarkerSection>
     </Layout>
   )

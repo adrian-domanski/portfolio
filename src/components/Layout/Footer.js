@@ -6,7 +6,6 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
   padding: 1rem 0;
   font-size: 1rem;
 `
