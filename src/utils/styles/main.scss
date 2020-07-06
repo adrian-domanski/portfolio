@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Nunito";
+  src: url("../font/Nunito-Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../font/Nunito-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("../font/Nunito-SemiBold.ttf");
+  font-weight: 500;
+}
+
+// Bulma config
+$primary: #ffb633;
+$family-sans-serif: BlinkMacSystemFont, -apple-system, "Nunito", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  "Helvetica", "Arial", sans-serif;
+$radius: 0;
+
+// Bulma import
+@import "~bulma/bulma.sass";
+
+// Mobile nav animation
+@include until($desktop) {
+  .navbar-menu {
+    display: block;
+    opacity: 1;
+
+    position: absolute; /* or float: left; width: 100%;*/
+    left: 0;
+    right: 0;
+
+    transform: scaleY(0);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transform-origin: top;
+  }
+
+  .navbar-menu.is-active {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
