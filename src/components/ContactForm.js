@@ -59,7 +59,7 @@ const ContactForm = () => {
           <input
             className="input"
             type="email"
-            placeholder="Adres email, na który zostanie wysłana odpowiedź"
+            placeholder="Twój adres email"
             value=""
           />
           <span className="icon is-small is-left">

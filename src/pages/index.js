@@ -10,6 +10,8 @@ import {
   Paragraph,
   DarkerSection,
   BiggerStyledSection,
+  StyledList,
+  StyledListItem,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
@@ -76,24 +78,6 @@ const StyledButton = styled(Button)`
   letter-spacing: 1px;
 
   margin: 0 auto;
-`
-
-const StyledList = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-`
-
-const StyledListItem = styled.li`
-  :before {
-    content: "\f105";
-    font-family: "Font Awesome 5 Free";
-    display: inline-block;
-    padding-right: 6px;
-    font-weight: 900;
-    color: ${({ theme }) => theme.colors.primary};
-  }
-  font-size: 1.5rem;
 `
 
 const StyledCard = styled.div`
@@ -183,7 +167,7 @@ const Home = () => {
         </div>
       </Header>
       <StyledSection>
-        <SectionTitle className="mb-6">Kilka słów o mnie</SectionTitle>
+        <SectionTitle>Kilka słów o mnie</SectionTitle>
         <StyledGatsbyImg fluid={data.placeholderImage.childImageSharp.fluid} />
         <Paragraph className="has-text-centered mt-6">
           Nazywam się Adrian Domański i mieszkam w Mosinie - niewielkim
@@ -202,7 +186,7 @@ const Home = () => {
 
       <DarkerSection right>
         <StyledSection>
-          <SectionTitle className="mb-6">Jakie strony tworzę?</SectionTitle>
+          <SectionTitle>Jakie strony tworzę?</SectionTitle>
 
           <StyledList>
             <StyledListItem>Wizytówka</StyledListItem>
@@ -275,7 +259,7 @@ const Home = () => {
         </BiggerStyledSection>
       </DarkerSection>
       <StyledSection>
-        <SectionTitle className="mb-6">Moje projekty</SectionTitle>
+        <SectionTitle>Moje projekty</SectionTitle>
 
         <MyProjectsGrid>
           <div className="my-project">

@@ -22,7 +22,7 @@ const PageWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, darkFooter }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
       <PageWrapper>
         <Navbar />
         <main>{children}</main>
-        <Footer />
+        <Footer darkFooter={darkFooter} />
       </PageWrapper>
     </ThemeProvider>
   )
