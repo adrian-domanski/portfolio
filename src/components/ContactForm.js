@@ -56,6 +56,7 @@ const ContactForm = () => {
 
   const handleFormSubmit = e => {
     if (!title || !email || !content) {
+      e.preventDefault()
       setAlert({ type: "danger", msg: "Proszę wypełnić wszystke pola" })
     } else {
       setAlert({
@@ -63,10 +64,6 @@ const ContactForm = () => {
         msg: "Twoja wiadomość została pomyślnie wysłana",
       })
     }
-
-    setTitle("")
-    setEmail("")
-    setContent("")
 
     setTimeout(() => {
       setAlert({ type: "", msg: "" })
