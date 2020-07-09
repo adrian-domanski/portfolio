@@ -54,9 +54,7 @@ const ContactForm = () => {
     }
   }
 
-  const handleFormSubmit = e => {
-    e.preventDefault()
-
+  const handleFormSubmit = () => {
     if (!title || !email || !content) {
       setAlert({ type: "danger", msg: "Proszę wypełnić wszystke pola" })
     } else {
@@ -77,7 +75,7 @@ const ContactForm = () => {
 
   return (
     <StyledForm
-      action="submit"
+      action="/"
       onSubmit={handleFormSubmit}
       name="contact"
       method="POST"
