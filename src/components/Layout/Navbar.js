@@ -159,7 +159,7 @@ const Navbar = () => {
 
           <NavbarLink
             to="/kontakt"
-            className={`${pathname === "/kontakt" && "is-active"}`}
+            className={`${pathname === "/kontakt" && "active"}`}
           >
             Kontakt
           </NavbarLink>

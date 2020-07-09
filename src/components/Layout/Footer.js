@@ -1,20 +1,20 @@
 import React from "react"
 import styled from "styled-components"
 
+const StyledFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  font-size: 1rem;
+  background-color: ${props =>
+    props.darkFooter ? props.theme.colors.darkerGrey : "transparent"};
+`
+
 const Footer = ({ darkFooter }) => {
-  const StyledFooter = styled.footer`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem 0;
-    font-size: 1rem;
-    background-color: ${darkFooter
-      ? ({ theme }) => theme.colors.darkerGrey
-      : "transparent"};
-  `
   return (
-    <StyledFooter className="has-text-grey">
+    <StyledFooter darkFooter={darkFooter} className="has-text-grey">
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <span className="has-text-primary">Adrian Domański</span> - Wszelkie

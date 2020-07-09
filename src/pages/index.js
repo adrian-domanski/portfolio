@@ -6,12 +6,12 @@ import {
   Button,
   SectionTitle,
   StyledSection,
-  StyledGatsbyImg,
   Paragraph,
   DarkerSection,
   BiggerStyledSection,
   StyledList,
   StyledListItem,
+  StyledGatsbyImg,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
@@ -127,19 +127,41 @@ const MyProjectsGrid = styled.div`
     }
   }
 
+  .my-project__link {
+  }
+
   .my-project__info {
     padding: 2rem;
     background-color: ${({ theme }) => theme.colors.darkerGrey};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .my-project__info-title {
     font-size: 1.5rem;
     color: ${({ theme }) => theme.colors.lightWhite};
   }
+
+  .my-project__img {
+    overflow: hidden;
+  }
+`
+
+const StyledImg = styled.img`
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+
+  :hover {
+    transform: scale(1.05);
+  }
 `
 
 const Home = () => {
-  const data = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "computer-on-desk.jpg" }) {
         childImageSharp {
@@ -148,8 +170,34 @@ const Home = () => {
           }
         }
       }
+      allContentfulProjects(
+        filter: {
+          id: {
+            in: [
+              "07bd2745-a5e2-53fa-9abc-8bd596d220ae"
+              "36b931a8-f86c-5a77-bed0-cd175e11b3ae"
+              "8f1005da-a9a4-5a66-b588-258fd69647bd"
+            ]
+          }
+        }
+      ) {
+        edges {
+          node {
+            id
+            title
+            slug
+            short
+            images {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `)
+
   return (
     <Layout>
       <Header>
@@ -163,12 +211,14 @@ const Home = () => {
           </p>
           <p>Zajmuję się tworzeniem stron internetowych</p>
           <p>Front End | Back End | Design</p>
-          <StyledButton className="button mt-5">Kontakt</StyledButton>
+          <Link to="/kontakt">
+            <StyledButton className="button mt-5">Kontakt</StyledButton>
+          </Link>
         </div>
       </Header>
       <StyledSection>
         <SectionTitle>Kilka słów o mnie</SectionTitle>
-        <StyledGatsbyImg fluid={data.placeholderImage.childImageSharp.fluid} />
+        <StyledGatsbyImg fluid={query.placeholderImage.childImageSharp.fluid} />
         <Paragraph className="has-text-centered mt-6">
           Nazywam się Adrian Domański i mieszkam w Mosinie - niewielkim
           miasteczku pod Poznaniem. Tworzeniem stron internetowych zajmuję się
@@ -255,65 +305,35 @@ const Home = () => {
               </StyledCard>
             </div>
           </div>
-          <StyledButton className="button">Zobacz więcej</StyledButton>
+          <Link to="/technologie">
+            <StyledButton className="button">Zobacz więcej</StyledButton>
+          </Link>
         </BiggerStyledSection>
       </DarkerSection>
       <StyledSection>
         <SectionTitle>Moje projekty</SectionTitle>
 
         <MyProjectsGrid>
-          <div className="my-project">
-            <div className="my-project__img">
-              <StyledGatsbyImg
-                fluid={data.placeholderImage.childImageSharp.fluid}
-              />
+          {query.allContentfulProjects.edges.map(({ node }) => (
+            <div key={node.id} className="my-project">
+              <div className="my-project__img">
+                <StyledImg src={node.images[0].file.url} />
+              </div>
+              <div className="my-project__info">
+                <div className="project-info">
+                  <h1 className="my-project__info-title">{node.title}</h1>
+                  <p className="my-project__info-short my-3">{node.short}</p>
+                </div>
+                <Link to={`/projekty${node.slug}`} className="my-project__link">
+                  <p className="has-text-primary">Szczegóły projektu...</p>
+                </Link>
+              </div>
             </div>
-            <div className="my-project__info">
-              <h1 className="my-project__info-title">Plan Szkolny</h1>
-              <p className="my-project__info-short my-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                quaerat velit amet tempore nostrum aliquid, repellendus eum
-                dolorem non quae?
-              </p>
-              <p className="has-text-primary">Szczegóły projektu...</p>
-            </div>
-          </div>
-
-          <div className="my-project">
-            <div className="my-project__img">
-              <StyledGatsbyImg
-                fluid={data.placeholderImage.childImageSharp.fluid}
-              />
-            </div>
-            <div className="my-project__info">
-              <h1 className="my-project__info-title">Plan Szkolny</h1>
-              <p className="my-project__info-short my-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                quaerat velit amet tempore nostrum aliquid, repellendus eum
-                dolorem non quae?
-              </p>
-              <p className="has-text-primary">Szczegóły projektu...</p>
-            </div>
-          </div>
-
-          <div className="my-project">
-            <div className="my-project__img">
-              <StyledGatsbyImg
-                fluid={data.placeholderImage.childImageSharp.fluid}
-              />
-            </div>
-            <div className="my-project__info">
-              <h1 className="my-project__info-title">Plan Szkolny</h1>
-              <p className="my-project__info-short my-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                quaerat velit amet tempore nostrum aliquid, repellendus eum
-                dolorem non quae?
-              </p>
-              <p className="has-text-primary">Szczegóły projektu...</p>
-            </div>
-          </div>
+          ))}
         </MyProjectsGrid>
-        <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+        <Link to="/projekty">
+          <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+        </Link>
       </StyledSection>
 
       <DarkerSection>

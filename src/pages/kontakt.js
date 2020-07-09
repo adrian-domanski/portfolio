@@ -4,6 +4,7 @@ import {
   StyledSection,
   SectionTitle,
   Paragraph,
+  DarkerSection,
 } from "../utils/styled/components"
 import styled from "styled-components"
 import ContactForm from "../components/ContactForm"
@@ -48,9 +49,9 @@ const StyledContactPage = styled.div`
 
 const Contact = () => {
   return (
-    <Layout darkFooter>
+    <Layout>
       <StyledContactPage>
-        <StyledSection>
+        <StyledSection className="mb-6">
           <SectionTitle>Kontakt</SectionTitle>
           <Paragraph>
             Masz pomysł na nowy projekt? Interesuje Cię współpraca? Jestem
@@ -92,10 +93,12 @@ const Contact = () => {
             </div>
           </div>
         </StyledSection>
-        <StyledSection>
-          <SectionTitle>Formularz kontaktowy</SectionTitle>
-          <ContactForm />
-        </StyledSection>
+        <DarkerSection right>
+          <StyledSection>
+            <SectionTitle>Formularz kontaktowy</SectionTitle>
+            <ContactForm />
+          </StyledSection>
+        </DarkerSection>
       </StyledContactPage>
     </Layout>
   )
