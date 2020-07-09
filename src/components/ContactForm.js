@@ -54,7 +54,8 @@ const ContactForm = () => {
     }
   }
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = e => {
+    e.preventDefault()
     if (!title || !email || !content) {
       setAlert({ type: "danger", msg: "Proszę wypełnić wszystke pola" })
     } else {
@@ -75,11 +76,11 @@ const ContactForm = () => {
 
   return (
     <StyledForm
-      action="/"
       onSubmit={handleFormSubmit}
-      name="contact"
-      method="POST"
+      method="post"
+      netlify-honeypot="bot-field"
       data-netlify="true"
+      name="contact"
     >
       {alert.msg && (
         <div className={`notification is-${alert.type} is-light`}>
