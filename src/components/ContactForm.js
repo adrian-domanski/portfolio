@@ -76,7 +76,6 @@ const ContactForm = () => {
 
   return (
     <StyledForm
-      onSubmit={handleFormSubmit}
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
