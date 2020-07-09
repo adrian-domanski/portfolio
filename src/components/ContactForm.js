@@ -55,7 +55,6 @@ const ContactForm = () => {
   }
 
   const handleFormSubmit = e => {
-    e.preventDefault()
     if (!title || !email || !content) {
       setAlert({ type: "danger", msg: "Proszę wypełnić wszystke pola" })
     } else {
@@ -76,6 +75,7 @@ const ContactForm = () => {
 
   return (
     <StyledForm
+      onSubmit={handleFormSubmit}
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
