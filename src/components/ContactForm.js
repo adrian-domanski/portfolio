@@ -82,6 +82,8 @@ const ContactForm = () => {
       data-netlify="true"
       name="contact"
     >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="contact" />
       {alert.msg && (
         <div className={`notification is-${alert.type} is-light`}>
           <button
