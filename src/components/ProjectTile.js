@@ -37,9 +37,7 @@ const ProjectTile = ({ project, className }) => {
           </div>
           <div className="card-content">
             <div className="content">
-              <h1 className="is-size-4 has-text-grey-lighter">
-                {project.title}
-              </h1>
+              <h1 className="is-size-4 has-text-white-bis">{project.title}</h1>
               <Paragraph className="has-text-grey-light">
                 {project.short}
               </Paragraph>

@@ -27,13 +27,14 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   &:before,
   &:after {
     content: "";
     display: block;
     position: absolute;
-    width: 30%;
+    width: 100%;
     height: 40%;
     background-color: ${({ theme }) => theme.colors.primary};
   }
@@ -41,13 +42,13 @@ const Header = styled.header`
   :before {
     left: 0;
     top: 0;
-    clip-path: polygon(0 0, 0 50%, 100% 0);
+    transform: translate(-50%, -50%) rotate(-30deg);
   }
 
   :after {
     bottom: 0;
     right: 0;
-    clip-path: polygon(100% 100%, 0 100%, 100% 52%);
+    transform: translate(50%, 50%) rotate(-30deg);
   }
 
   .header-content {
@@ -57,8 +58,12 @@ const Header = styled.header`
     position: relative;
     color: #fff;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1.75;
+
+    @media screen and (min-width: 600px) {
+      font-size: 2rem;
+    }
   }
 
   .background-filter {
@@ -76,7 +81,6 @@ const Header = styled.header`
 const StyledButton = styled(Button)`
   font-size: 1.3rem;
   letter-spacing: 1px;
-
   margin: 0 auto;
 `
 
@@ -107,8 +111,11 @@ const StyledCard = styled.div`
 
 const MyProjectsGrid = styled.div`
   .my-project {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    @media screen and (min-width: 768px) {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+    }
 
     :not(:last-child) {
       margin-bottom: 2rem;
@@ -125,9 +132,6 @@ const MyProjectsGrid = styled.div`
         grid-row: 1;
       }
     }
-  }
-
-  .my-project__link {
   }
 
   .my-project__info {
@@ -210,7 +214,11 @@ const Home = () => {
             </span>
           </p>
           <p>Zajmuję się tworzeniem stron internetowych</p>
-          <p>Front End | Back End | Design</p>
+          <p>
+            Front End <span className="has-text-primary">|</span> Back End{" "}
+            <span className="has-text-primary">|</span>
+            Design
+          </p>
           <Link to="/kontakt">
             <StyledButton className="button mt-5">Kontakt</StyledButton>
           </Link>
@@ -257,7 +265,7 @@ const Home = () => {
         </StyledSection>
         <BiggerStyledSection>
           <div className="columns">
-            <div className="column is-4">
+            <div className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
                   <div className="card-icon">
@@ -273,7 +281,7 @@ const Home = () => {
               </StyledCard>
             </div>
 
-            <div className="column is-4">
+            <div className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
                   <div className="card-icon">
@@ -289,7 +297,7 @@ const Home = () => {
               </StyledCard>
             </div>
 
-            <div className="column is-4">
+            <div className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
                   <div className="card-icon">

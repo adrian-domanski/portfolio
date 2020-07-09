@@ -1,21 +1,15 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
-import {
-  StyledSection,
-  SectionTitle,
-  BiggerStyledSection,
-  DarkerSection,
-} from "../utils/styled/components"
+import { SectionTitle, BiggerStyledSection } from "../utils/styled/components"
 import { graphql } from "gatsby"
 import ProjectTile from "../components/ProjectTile"
 
 const Projects = ({ data }) => {
-  console.log(data)
   const projects = data.allContentfulProjects.edges
 
   const projectsList = projects.map(project => (
     <ProjectTile
-      key={project.id}
+      key={project.node.id}
       className="column is-4"
       project={project.node}
     />
@@ -32,10 +26,11 @@ const Projects = ({ data }) => {
 }
 
 export const query = graphql`
-  {
+  query {
     allContentfulProjects {
       edges {
         node {
+          id
           slug
           title
           short
@@ -44,7 +39,6 @@ export const query = graphql`
               src
             }
           }
-          id
         }
       }
     }

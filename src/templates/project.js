@@ -8,9 +8,7 @@ import {
   StyledListItem,
   SectionSubtitle,
   Paragraph,
-  DarkerSection,
 } from "../utils/styled/components"
-import styled from "styled-components"
 import Gallery from "../components/Gallery"
 
 const ProjectDetails = ({ data }) => {

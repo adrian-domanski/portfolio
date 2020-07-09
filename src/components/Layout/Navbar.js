@@ -5,32 +5,37 @@ import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 
 const StyledNavbar = styled.nav`
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
-  box-shadow: 0 2px 3px #00000050;
-  @media screen and (max-width: 1023px) {
-    .navbar-burger {
-      color: ${({ theme }) => theme.colors.primary};
-
-      span {
-        height: 2px;
-      }
-    }
-    .navbar-menu {
-      .navbar-item.has-dropdown.is-hoverable,
-      .navbar-dropdown {
-        padding: 0;
-      }
-      background-color: #292929;
-      text-align: center;
-      padding: 0;
-      .navbar-item {
+  &&& {
+    background-color: ${({ theme }) => theme.colors.darkerGrey};
+    box-shadow: 0 2px 3px #00000050;
+    @media screen and (max-width: 1023px) {
+      position: sticky;
+      top: 0;
+      left: 0;
+      .navbar-burger {
         color: ${({ theme }) => theme.colors.primary};
-        text-shadow: ${({ theme }) => theme.textShadow};
-        font-size: 1rem;
-        padding: 1.2rem 1rem;
-        :hover {
+
+        span {
+          height: 3px;
+        }
+      }
+      .navbar-menu {
+        .navbar-item.has-dropdown.is-hoverable,
+        .navbar-dropdown {
+          padding: 0;
+        }
+        background-color: #292929;
+        text-align: center;
+        padding: 0;
+        .navbar-item {
           color: ${({ theme }) => theme.colors.primary};
-          background-color: unset;
+          text-shadow: ${({ theme }) => theme.textShadow};
+          font-size: 1.2rem;
+          padding: 1.2rem 1rem;
+          :hover {
+            color: ${({ theme }) => theme.colors.primary};
+            background-color: unset;
+          }
         }
       }
     }

@@ -68,7 +68,7 @@ export const SectionTitle = styled.h1`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;
-  width: fit-content;
+  display: table;
   position: relative;
   margin: 0 auto;
   margin-bottom: 72px;
@@ -109,8 +109,8 @@ export const DarkerSection = styled.div`
   background-color: ${({ theme }) => theme.colors.darkerGrey};
   clip-path: ${props =>
     props.right
-      ? "polygon(0 5%, 100% 0, 100% 95%, 0 100%)"
-      : "polygon(0 0, 100% 5%, 100% 100%, 0 95%)"};
+      ? "polygon(0 4%, 100% 0, 100% 96%, 0% 100%)"
+      : "polygon(0 0, 100% 4%, 100% 100%, 0 96%)"};
   padding: 5rem 0;
 `
 
@@ -125,9 +125,16 @@ export const Paragraph = styled.p`
 
 export const StyledList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 998px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `
 
 export const StyledListItem = styled.li`
