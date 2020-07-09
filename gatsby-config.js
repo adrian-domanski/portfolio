@@ -3,7 +3,7 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Strony internetowe | Adrian Domański`,
-    description: `Tworzenie stron internetowych na terenie Mosiny, Śremu, Poznania i okolic. Zajmuję się projektowaniem i programowaniem stron internetowych. Tworzę portfolia, strony personalne, strony firmowe, strony wizytówki, strony w oparciu o CMS lub na dowolny inny temat.`,
+    description: `Tworzenie stron internetowych na terenie Mosiny, Śremu, Poznania, okolic oraz zdalnie. Zajmuję się projektowaniem i programowaniem stron internetowych. Tworzę portfolia, strony personalne, strony firmowe, strony wizytówki, strony w oparciu o CMS lub na dowolny inny temat.`,
     author: `Adrian Domański`,
   },
   plugins: [
@@ -34,6 +34,7 @@ module.exports = {
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

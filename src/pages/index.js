@@ -28,13 +28,14 @@ const Header = styled.header`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
 
   &:before,
   &:after {
     content: "";
     display: block;
     position: absolute;
-    width: 100%;
+    width: 300%;
     height: 40%;
     background-color: ${({ theme }) => theme.colors.primary};
   }
@@ -207,25 +208,48 @@ const Home = () => {
       <Header>
         <div className="background-filter"></div>
         <div className="header-content">
-          <p>
+          <p
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+          >
             Witaj, jestem{" "}
             <span className="has-text-primary has-text-weight-bold">
               Adrian
             </span>
           </p>
-          <p>Zajmuję się tworzeniem stron internetowych</p>
-          <p>
+          <p
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+            data-sal-delay="500"
+          >
+            Zajmuję się tworzeniem stron internetowych
+          </p>
+          <p
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-delay="750"
+            data-sal-duration="1000"
+          >
             Front End <span className="has-text-primary">|</span> Back End{" "}
             <span className="has-text-primary">|</span>
             Design
           </p>
-          <Link to="/kontakt">
-            <StyledButton className="button mt-5">Kontakt</StyledButton>
-          </Link>
+          <p
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+            data-sal-delay="1000"
+          >
+            <Link to="/kontakt">
+              <StyledButton className="button mt-5">Kontakt</StyledButton>
+            </Link>
+          </p>
         </div>
       </Header>
       <StyledSection>
-        <SectionTitle>Kilka słów o mnie</SectionTitle>
+        <SectionTitle data-sal-delay="1000">Kilka słów o mnie</SectionTitle>
         <StyledGatsbyImg fluid={query.placeholderImage.childImageSharp.fluid} />
         <Paragraph className="has-text-centered mt-6">
           Nazywam się Adrian Domański i mieszkam w Mosinie - niewielkim
@@ -246,7 +270,11 @@ const Home = () => {
         <StyledSection>
           <SectionTitle>Jakie strony tworzę?</SectionTitle>
 
-          <StyledList>
+          <StyledList
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+          >
             <StyledListItem>Wizytówka</StyledListItem>
             <StyledListItem>Strona firmowa</StyledListItem>
             <StyledListItem>Reklama usług</StyledListItem>
@@ -266,7 +294,12 @@ const Home = () => {
         <BiggerStyledSection>
           <div className="columns">
             <div className="column is-4-desktop">
-              <StyledCard className="card">
+              <StyledCard
+                className="card"
+                data-sal="slide-right"
+                data-sal-easing="ease"
+                data-sal-duration="1000"
+              >
                 <div className="card-content">
                   <div className="card-icon">
                     <i className="fas fa-pencil-ruler"></i>
@@ -282,7 +315,12 @@ const Home = () => {
             </div>
 
             <div className="column is-4-desktop">
-              <StyledCard className="card">
+              <StyledCard
+                className="card"
+                data-sal="fade"
+                data-sal-easing="ease"
+                data-sal-duration="1000"
+              >
                 <div className="card-content">
                   <div className="card-icon">
                     <i className="fas fa-laptop-code"></i>
@@ -298,7 +336,12 @@ const Home = () => {
             </div>
 
             <div className="column is-4-desktop">
-              <StyledCard className="card">
+              <StyledCard
+                className="card"
+                data-sal="slide-left"
+                data-sal-easing="ease"
+                data-sal-duration="1000"
+              >
                 <div className="card-content">
                   <div className="card-icon">
                     <i className="fas fa-mobile-alt"></i>
@@ -313,17 +356,36 @@ const Home = () => {
               </StyledCard>
             </div>
           </div>
-          <Link to="/technologie">
-            <StyledButton className="button">Zobacz więcej</StyledButton>
-          </Link>
+          <div
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+          >
+            <Link to="/technologie">
+              <StyledButton
+                className="button"
+                data-sal="slide-left"
+                data-sal-easing="ease"
+                data-sal-duration="1000"
+              >
+                Zobacz więcej
+              </StyledButton>
+            </Link>
+          </div>
         </BiggerStyledSection>
       </DarkerSection>
       <StyledSection>
         <SectionTitle>Moje projekty</SectionTitle>
 
         <MyProjectsGrid>
-          {query.allContentfulProjects.edges.map(({ node }) => (
-            <div key={node.id} className="my-project">
+          {query.allContentfulProjects.edges.map(({ node }, index) => (
+            <div
+              key={node.id}
+              className="my-project"
+              data-sal={`slide-${index % 2 === 0 ? "right" : "left"}`}
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
               <div className="my-project__img">
                 <StyledImg src={node.images[0].file.url} />
               </div>
@@ -339,9 +401,15 @@ const Home = () => {
             </div>
           ))}
         </MyProjectsGrid>
-        <Link to="/projekty">
-          <StyledButton className="mt-6">Zobacz więcej</StyledButton>
-        </Link>
+        <div
+          data-sal="slide-up"
+          data-sal-easing="ease"
+          data-sal-duration="1000"
+        >
+          <Link to="/projekty">
+            <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+          </Link>
+        </div>
       </StyledSection>
 
       <DarkerSection>

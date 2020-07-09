@@ -10,6 +10,7 @@ const StyledFooter = styled.footer`
   font-size: 1rem;
   background-color: ${props =>
     props.darkFooter ? props.theme.colors.darkerGrey : "transparent"};
+  text-align: center;
 `
 
 const Footer = ({ darkFooter }) => {

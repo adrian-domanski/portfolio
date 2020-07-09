@@ -8,10 +8,10 @@ const StyledNavbar = styled.nav`
   &&& {
     background-color: ${({ theme }) => theme.colors.darkerGrey};
     box-shadow: 0 2px 3px #00000050;
+    position: sticky;
+    top: 0;
+    left: 0;
     @media screen and (max-width: 1023px) {
-      position: sticky;
-      top: 0;
-      left: 0;
       .navbar-burger {
         color: ${({ theme }) => theme.colors.primary};
 

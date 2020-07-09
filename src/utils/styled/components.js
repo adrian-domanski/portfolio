@@ -64,7 +64,11 @@ export const Button = styled.button.attrs({ className: "button" })`
   }
 `
 
-export const SectionTitle = styled.h1`
+export const SectionTitle = styled.h1.attrs({
+  "data-sal": "slide-up",
+  "data-sal-easing": "ease",
+  "data-sal-duration": "1000",
+})`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;
@@ -118,7 +122,11 @@ export const StyledGatsbyImg = styled(Img)`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
-export const Paragraph = styled.p`
+export const Paragraph = styled.p.attrs({
+  "data-sal": "slide-up",
+  "data-sal-easing": "ease",
+  "data-sal-duration": "1000",
+})`
   font-size: 1.4rem;
   line-height: 1.75;
 `
