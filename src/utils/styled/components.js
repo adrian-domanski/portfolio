@@ -174,3 +174,16 @@ export const SectionSubtitle = styled.h1`
     background: ${({ theme }) => theme.colors.primary};
   }
 `
+
+export const Blockquote = styled.blockquote.attrs({
+  "data-sal": "slide-up",
+  "data-sal-easing": "ease",
+  "data-sal-duration": "1000",
+})`
+  && {
+    &.is-primary {
+      background-color: ${({ theme }) => theme.colors.darkerGrey};
+      border-color: ${({ theme }) => theme.colors.primary};
+    }
+  }
+`

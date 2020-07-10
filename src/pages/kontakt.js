@@ -54,14 +54,14 @@ const Contact = () => {
         <StyledSection className="mb-6">
           <SectionTitle>Kontakt</SectionTitle>
           <Paragraph>
-            Masz pomysł na nowy projekt? Interesuje Cię współpraca? Jestem
-            otwarty na wszelkie propozycje. Skontaktuj się ze mną za pomocą
-            poniższych metod.Masz pomysł na nowy projekt? Interesuje Cię
-            współpraca? Jestem otwarty na wszelkie propozycje. Skontaktuj się ze
-            mną za pomocą poniższych metod.
+            Masz pomysł na nowy{" "}
+            <span className="has-text-primary">projekt</span>? Interesuje Cię{" "}
+            <span className="has-text-primary">współpraca</span>? Jestem otwarty
+            na wszelkie propozycje. Skontaktuj się ze mną za pomocą wiadomości
+            na poniższy adres e-mail lub skorzystaj z formularza kontaktowego.
           </Paragraph>
           <div className="field mt-5">
-            <label className="label">E-mail (zalecane)</label>
+            <label className="label">E-mail</label>
             <div className="control has-icons-left">
               <input
                 className="input"
