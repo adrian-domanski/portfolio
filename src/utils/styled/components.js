@@ -30,7 +30,7 @@ export const Button = styled.button.attrs({ className: "button" })`
       height: 100%;
       background: #ffa92d;
       transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
-      opacity: 0.05;
+      opacity: 0.1;
       box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
@@ -156,7 +156,11 @@ export const StyledListItem = styled.li`
   }
   font-size: 1.5rem;
 `
-export const SectionSubtitle = styled.h1`
+export const SectionSubtitle = styled.h1.attrs({
+  "data-sal": "slide-up",
+  "data-sal-easing": "ease",
+  "data-sal-duration": "1000",
+})`
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.lightWhite};
   margin-bottom: 26px;

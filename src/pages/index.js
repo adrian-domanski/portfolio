@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
 import styled from "styled-components"
+import Particles from "react-particles-js"
+import particlesConfig from "../utils/particlesConfig.json"
 import {
   Button,
   SectionTitle,
@@ -61,6 +63,7 @@ const Header = styled.header`
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.75;
+    pointer-events: none;
 
     @media screen and (min-width: 600px) {
       font-size: 2rem;
@@ -83,6 +86,10 @@ const StyledButton = styled(Button)`
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin: 0 auto;
+
+  &.pointer-active {
+    pointer-events: all;
+  }
 `
 
 const StyledCard = styled.div`
@@ -116,6 +123,13 @@ const MyProjectsGrid = styled.div`
       display: grid;
 
       grid-template-columns: 1fr 1fr;
+    }
+
+    .show-more {
+      :hover p {
+        transition: color 0.2s ease-in-out;
+        color: #c38c28 !important;
+      }
     }
 
     :not(:last-child) {
@@ -206,7 +220,12 @@ const Home = () => {
   return (
     <Layout>
       <Header>
-        <div className="background-filter"></div>
+        <div className="background-filter">
+          <Particles
+            className="home-page-header__particles is-hidden-mobile"
+            params={particlesConfig.header}
+          />
+        </div>
         <div className="header-content">
           <p
             data-sal="slide-up"
@@ -236,26 +255,29 @@ const Home = () => {
             <span className="has-text-primary">|</span>
             Design
           </p>
-          <p
+          <div
             data-sal="slide-up"
             data-sal-easing="ease"
             data-sal-duration="1000"
             data-sal-delay="1000"
           >
             <Link to="/kontakt">
-              <StyledButton className="button mt-5">Kontakt</StyledButton>
+              <StyledButton className="button mt-5 pointer-active">
+                Kontakt
+              </StyledButton>
             </Link>
-          </p>
+          </div>
         </div>
       </Header>
       <StyledSection>
         <SectionTitle data-sal-delay="1000">Kilka słów o mnie</SectionTitle>
         <StyledGatsbyImg fluid={query.placeholderImage.childImageSharp.fluid} />
         <Paragraph className="has-text-centered mt-6">
-          Nazywam się Adrian Domański i mieszkam w Mosinie - niewielkim
-          miasteczku pod Poznaniem. Tworzeniem stron internetowych zajmuję się
-          od 2 lat. Jako osoba wytrwała i sumienna w dążeniu do wyznaczonych
-          celów rozwijam swoją pasję codzienną, systematyczną pracą.
+          Nazywam się <span className="has-text-primary">Adrian Domański</span>{" "}
+          i mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem. Tworzeniem
+          stron internetowych zajmuję się od 2 lat. Jako osoba wytrwała i
+          sumienna w dążeniu do wyznaczonych celów rozwijam swoją pasję
+          codzienną, systematyczną pracą.
         </Paragraph>
         <Paragraph className="has-text-centered mt-6">
           Interesują mnie nowe technologie i rozwiązania w świecie web
@@ -387,14 +409,19 @@ const Home = () => {
               data-sal-duration="1000"
             >
               <div className="my-project__img">
-                <StyledImg src={node.images[0].file.url} />
+                <Link to={`/projekty${node.slug}`} className="my-project__link">
+                  <StyledImg src={node.images[0].file.url} />
+                </Link>
               </div>
               <div className="my-project__info">
                 <div className="project-info">
                   <h1 className="my-project__info-title">{node.title}</h1>
                   <p className="my-project__info-short my-3">{node.short}</p>
                 </div>
-                <Link to={`/projekty${node.slug}`} className="my-project__link">
+                <Link
+                  to={`/projekty${node.slug}`}
+                  className="my-project__link show-more"
+                >
                   <p className="has-text-primary">Szczegóły projektu...</p>
                 </Link>
               </div>
