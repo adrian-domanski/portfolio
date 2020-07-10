@@ -76,6 +76,13 @@ const NavbarLink = styled(Link).attrs({ className: "navbar-item" })`
       }
     }
 
+    :focus {
+      color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.colors.darkGrey};
+      border: none;
+      outline: none;
+    }
+
     @media screen and (min-width: 1100px) {
       font-size: 1.1rem;
     }
