@@ -15,14 +15,17 @@ const StyledFooter = styled.footer`
 
 const Footer = ({ darkFooter }) => {
   return (
-    <StyledFooter darkFooter={darkFooter} className="has-text-grey">
+    <StyledFooter darkFooter={darkFooter} className="has-text-grey-light">
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <span className="has-text-primary">Adrian Domański</span> - Wszelkie
         prawa zastrzeżone
       </p>
       <p>
-        <a href="https://github.com/adrian-domanski" className="has-text-grey">
+        <a
+          href="https://github.com/adrian-domanski"
+          className="has-text-grey-light"
+        >
           GitHub <i className="fab fa-github"></i>
         </a>
       </p>

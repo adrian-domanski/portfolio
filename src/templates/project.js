@@ -77,6 +77,9 @@ export const query = graphql`
       live
       code
       images {
+        fluid {
+          src
+        }
         file {
           url
         }

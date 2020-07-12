@@ -52,7 +52,7 @@ export const query = graphql`
           title
           short
           images {
-            fluid(quality: 100) {
+            fluid {
               src
             }
           }

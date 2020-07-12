@@ -11,7 +11,7 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.darkGrey};
-    color: ${({ theme }) => theme.colors.darkerWhite};
+    color: #cccccc;
     font-size: 20px;
   }
 `

@@ -14,6 +14,7 @@ import {
   StyledList,
   StyledListItem,
   StyledGatsbyImg,
+  SectionSubtitle,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
@@ -211,8 +212,8 @@ const Home = () => {
             slug
             short
             images {
-              file {
-                url
+              fluid {
+                src
               }
             }
           }
@@ -431,14 +432,16 @@ const Home = () => {
               <div className="my-project__img">
                 <Link to={`/projekty${node.slug}`} className="my-project__link">
                   <StyledImg
-                    src={node.images[0].file.url}
+                    src={node.images[0].fluid.src}
                     alt={`Podgląd strony ${node.title}`}
                   />
                 </Link>
               </div>
               <div className="my-project__info">
                 <div className="project-info">
-                  <h1 className="my-project__info-title">{node.title}</h1>
+                  <SectionSubtitle className="my-project__info-title">
+                    {node.title}
+                  </SectionSubtitle>
                   <p className="my-project__info-short my-3">{node.short}</p>
                 </div>
                 <Link

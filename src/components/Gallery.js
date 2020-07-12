@@ -2,12 +2,10 @@ import React from "react"
 import ImageGallery from "react-image-gallery"
 
 const Gallery = ({ images }) => {
-  const imagesList = images.map(({ file }) => ({
+  const imagesList = images.map(({ file, fluid }) => ({
     original: file.url,
-    thumbnail: file.url,
+    thumbnail: fluid.src,
   }))
-
-  console.log(images)
 
   return <ImageGallery items={imagesList} />
 }
