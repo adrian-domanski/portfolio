@@ -133,7 +133,10 @@ const Navbar = () => {
     >
       <div className="navbar-brand">
         <LogoLink to="/">
-          <StyledLogo src={LogoIMG} alt="" />
+          <StyledLogo
+            src={LogoIMG}
+            alt="Logo, tworzenie stron internetowych Adrian Domański"
+          />
         </LogoLink>
 
         <a

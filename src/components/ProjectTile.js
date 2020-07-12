@@ -33,7 +33,10 @@ const ProjectTile = ({ project, className }) => {
       <Link to={`/projekty${project.slug}`}>
         <Card className="card">
           <div className="card-image">
-            <img src={project.images[0].fluid.src} alt={project.title} />
+            <img
+              src={project.images[0].fluid.src}
+              alt={`Miniaturka przykładowej strony internetowej, którą stworzyłem ${project.title}`}
+            />
           </div>
           <div className="card-content">
             <div className="content">

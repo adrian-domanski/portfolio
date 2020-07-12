@@ -276,7 +276,10 @@ const Home = () => {
       </Header>
       <StyledSection>
         <SectionTitle data-sal-delay="1000">Kilka słów o mnie</SectionTitle>
-        <StyledGatsbyImg fluid={query.placeholderImage.childImageSharp.fluid} />
+        <StyledGatsbyImg
+          fluid={query.placeholderImage.childImageSharp.fluid}
+          alt="Tworzenie storny internetowej, laptop, notatnik i kubek"
+        />
         <Paragraph className="has-text-centered mt-6">
           Nazywam się <span className="has-text-primary">Adrian Domański</span>{" "}
           i mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem. Tworzeniem
@@ -427,7 +430,10 @@ const Home = () => {
             >
               <div className="my-project__img">
                 <Link to={`/projekty${node.slug}`} className="my-project__link">
-                  <StyledImg src={node.images[0].file.url} />
+                  <StyledImg
+                    src={node.images[0].file.url}
+                    alt={`Podgląd strony ${node.title}`}
+                  />
                 </Link>
               </div>
               <div className="my-project__info">

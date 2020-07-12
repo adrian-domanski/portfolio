@@ -62,9 +62,18 @@ const Technologies = () => {
           </Blockquote>
         </div>
         <TechnologiesGroup>
-          <TechnologyIMG src={html} alt="html" />
-          <TechnologyIMG src={js} alt="js" />
-          <TechnologyIMG src={css} alt="css" />
+          <TechnologyIMG
+            src={html}
+            alt="Język tworzenia stron internetowych html"
+          />
+          <TechnologyIMG
+            src={js}
+            alt="Język tworzenia stron internetowych javascript"
+          />
+          <TechnologyIMG
+            src={css}
+            alt="Język tworzenia stron internetowych css"
+          />
         </TechnologiesGroup>
         <StyledParagraph>
           Podstawowa trójka, której uczyłem się w pierwszej kolejności.
@@ -75,9 +84,18 @@ const Technologies = () => {
         </StyledParagraph>
 
         <TechnologiesGroup>
-          <TechnologyIMG src={gatsby} alt="gatsby" />
-          <TechnologyIMG src={react} alt="react" />
-          <TechnologyIMG src={nextjs} alt="nextjs" />
+          <TechnologyIMG
+            src={gatsby}
+            alt="Narzędzie do tworzenia stron internetowych gatsby"
+          />
+          <TechnologyIMG
+            src={react}
+            alt="Narzędzie do tworzenia stron internetowych react"
+          />
+          <TechnologyIMG
+            src={nextjs}
+            alt="Narzędzie do tworzenia stron internetowych nextjs"
+          />
         </TechnologiesGroup>
         <StyledParagraph>
           Uwielbiam rozwiązania i możliwości które daje nam biblioteka{" "}
@@ -89,9 +107,18 @@ const Technologies = () => {
         </StyledParagraph>
 
         <TechnologiesGroup>
-          <TechnologyIMG src={mongodb} alt="mongodb" />
-          <TechnologyIMG src={nodejs} alt="nodejs" />
-          <TechnologyIMG src={graphql} alt="graphql" />
+          <TechnologyIMG
+            src={mongodb}
+            alt="Narzędzie do tworzenia stron internetowych mongodb"
+          />
+          <TechnologyIMG
+            src={nodejs}
+            alt="Narzędzie do tworzenia stron internetowych nodejs"
+          />
+          <TechnologyIMG
+            src={graphql}
+            alt="Narzędzie do tworzenia stron internetowych graphql"
+          />
         </TechnologiesGroup>
         <StyledParagraph>
           Na zapleczu strony wykorzystuje <PrimaryText>Node.js</PrimaryText>.
