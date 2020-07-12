@@ -37,21 +37,24 @@ const Header = styled.header`
     content: "";
     display: block;
     position: absolute;
-    width: 300%;
-    height: 40%;
-    background-color: ${({ theme }) => theme.colors.primary};
   }
 
   :before {
     left: 0;
     top: 0;
-    transform: translate(-50%, -50%) rotate(-30deg);
+    width: 0;
+    height: 0;
+    border-top: 150px solid ${({ theme }) => theme.colors.primary};
+    border-right: 250px solid transparent;
   }
 
   :after {
     bottom: 0;
     right: 0;
-    transform: translate(50%, 50%) rotate(-30deg);
+    width: 0;
+    height: 0;
+    border-bottom: 150px solid ${({ theme }) => theme.colors.primary};
+    border-left: 250px solid transparent;
   }
 
   .header-content {
@@ -195,7 +198,7 @@ const Home = () => {
             in: [
               "07bd2745-a5e2-53fa-9abc-8bd596d220ae"
               "36b931a8-f86c-5a77-bed0-cd175e11b3ae"
-              "8f1005da-a9a4-5a66-b588-258fd69647bd"
+              "877b4f89-5a6d-5ca8-8ead-30c825ddea89"
             ]
           }
         }
@@ -276,15 +279,17 @@ const Home = () => {
           Nazywam się <span className="has-text-primary">Adrian Domański</span>{" "}
           i mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem. Tworzeniem
           stron internetowych zajmuję się od 2 lat. Jako osoba wytrwała i
-          sumienna w dążeniu do wyznaczonych celów rozwijam swoją pasję
-          codzienną, systematyczną pracą.
+          sumienna w dążeniu do wyznaczonych celów rozwijam swoją{" "}
+          <span className="has-text-primary">pasję</span> codzienną,
+          systematyczną pracą.
         </Paragraph>
-        <Paragraph className="has-text-centered mt-6">
+        <Paragraph className="has-text-centered mt-5">
           Interesują mnie nowe technologie i rozwiązania w świecie web
-          developmentu i branży IT. Zajmuję się przede wszystkim warstwą
-          wizualną stron. Bez większych trudności potrafię stworzyć portfolio,
+          developmentu i branży IT. Bez większych trudności{" "}
+          <span className="has-text-primary">potrafię stworzyć</span> portfolio,
           stronę firmową przedstawiającą daną działalność, czy jakąkolwiek inną
-          witrynę na wybrany temat.
+          witrynę na wybrany temat. Z wielką chęcią pomogę Ci w realizacji
+          twojego wymarzonego projektu i zadbam o wszelkie aspekty techniczne.
         </Paragraph>
       </StyledSection>
 
@@ -293,6 +298,7 @@ const Home = () => {
           <SectionTitle>Jakie strony tworzę?</SectionTitle>
 
           <StyledList
+            className="mb-6"
             data-sal="slide-up"
             data-sal-easing="ease"
             data-sal-duration="1000"
@@ -306,11 +312,20 @@ const Home = () => {
             <StyledListItem>Strona w oparciu o CMS</StyledListItem>
           </StyledList>
 
-          <Paragraph className="has-text-centered mt-6">
-            Potrafię przygotować projekt graficzny, który po omówieniu z
-            klientem wdrażam za pomocą odpowiednich rozwiązań. Dbam o
-            pozycjonowanie strony, kierując się zbiorem obowiązujących zasad i
-            standardów.
+          <Paragraph className="has-text-centered">
+            Potrafię przygotować{" "}
+            <span className="has-text-primary">projekt graficzny</span>, który
+            po omówieniu z klientem wdrażam za pomocą odpowiednich rozwiązań.
+            Dbam o pozycjonowanie strony, kierując się zbiorem obowiązujących
+            zasad i standardów.
+          </Paragraph>
+          <br />
+          <Paragraph className="has-text-centered">
+            Moje strony są niezwykle{" "}
+            <span className="has-text-primary">szybkie</span> i{" "}
+            <span className="has-text-primary">wydajne</span> - zobacz sam, jak
+            błyskawicznie możesz przemieszczać się między podstronami używając
+            górnej nawigacji.
           </Paragraph>
         </StyledSection>
         <BiggerStyledSection>
@@ -366,13 +381,13 @@ const Home = () => {
               >
                 <div className="card-content">
                   <div className="card-icon">
-                    <i className="fas fa-mobile-alt"></i>
+                    <i className="fas fa-cogs"></i>
                   </div>
-                  <div className="card-title">RWD</div>
+                  <div className="card-title">Wsparcie techniczne</div>
                   <div className="card-text">
-                    W moich projektach kieruję się zasadą "mobile first" i dbam
-                    o to, aby wszystko wyświetlało się poprawnie na każdym
-                    urządzeniu.
+                    Zajmę się wszelkimi sprawami technicznymi i przeprowadzę
+                    cały projekt od początku do końca. Służę pomocą w razie
+                    wystąpienia jakichkolwiek problemów.
                   </div>
                 </div>
               </StyledCard>

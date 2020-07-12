@@ -7,6 +7,7 @@ import {
   StyledList,
   StyledListItem,
   DarkerSection,
+  Blockquote,
 } from "../utils/styled/components"
 import styled from "styled-components"
 
@@ -47,6 +48,17 @@ const Technologies = () => {
     <Layout>
       <StyledSection>
         <SectionTitle>Technologie</SectionTitle>
+        <Paragraph className="has-text-centered">
+          Uwielbiam nowe rozwiązania i narzędzia, które ułatwiają nam pracę.
+          Poniżej znajdziesz zbiór technologii, jakie wykorzystuje przy
+          tworzeniu projektów.
+        </Paragraph>
+        <div className="content mt-6">
+          <Blockquote className="is-danger has-text-danger">
+            Uwaga, poniżej znajduje się wiele trudnych wyrazów i sformułowań -
+            czytasz na własne ryzyko!
+          </Blockquote>
+        </div>
         <TechnologiesGroup>
           <TechnologyIMG src={html} alt="html" />
           <TechnologyIMG src={js} alt="js" />
@@ -71,7 +83,7 @@ const Technologies = () => {
           JavaScript nie jest tak dobrze pozycjonowany jak czysty HTML dlatego w
           zależności od postawionego przede mną zadania korzystam z takich
           udogodnień jak <PrimaryText>Next.js</PrimaryText> czy{" "}
-          <PrimaryText>Gatsby</PrimaryText>, których jestem wielkim fanem.
+          <PrimaryText>GatsbyJS</PrimaryText>, których jestem wielkim fanem.
         </StyledParagraph>
 
         <TechnologiesGroup>

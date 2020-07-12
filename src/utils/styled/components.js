@@ -189,5 +189,9 @@ export const Blockquote = styled.blockquote.attrs({
       background-color: ${({ theme }) => theme.colors.darkerGrey};
       border-color: ${({ theme }) => theme.colors.primary};
     }
+    &.is-danger {
+      background-color: ${({ theme }) => theme.colors.darkerGrey};
+      border-color: hsl(348, 100%, 61%);
+    }
   }
 `
