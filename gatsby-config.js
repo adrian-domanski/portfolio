@@ -5,6 +5,7 @@ module.exports = {
     title: `Strony internetowe | Adrian Domański`,
     description: `Tworzenie stron internetowych na terenie Mosiny, Śremu, Poznania, okolic oraz zdalnie. Zajmuję się projektowaniem i programowaniem stron internetowych. Tworzę portfolia, strony personalne, strony firmowe, strony wizytówki, strony w oparciu o CMS lub na dowolny inny temat.`,
     author: `Adrian Domański`,
+    siteUrl: `https://adrian-domanski.pl`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,6 +36,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-scroll-reveal`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

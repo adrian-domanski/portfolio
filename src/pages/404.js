@@ -3,6 +3,7 @@ import Layout from "../components/Layout/Layout"
 import { StyledSection, SectionTitle, Button } from "../utils/styled/components"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import SEO from "../components/seo"
 
 const PageWrapper = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const StyledButton = styled(Button)`
 
 const NotFoundPage = () => (
   <Layout darkFooter>
+    <SEO title="Strony internetowe - Adrian Domański - 404" />
     <PageWrapper>
       <StyledSection>
         <SectionTitle>Niestety, ta strona nie istnieje</SectionTitle>

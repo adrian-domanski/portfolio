@@ -8,6 +8,7 @@ import {
 } from "../utils/styled/components"
 import { graphql } from "gatsby"
 import ProjectTile from "../components/ProjectTile"
+import SEO from "../components/seo"
 
 const Projects = ({ data }) => {
   const projects = data.allContentfulProjects.edges
@@ -22,6 +23,7 @@ const Projects = ({ data }) => {
 
   return (
     <Layout darkFooter>
+      <SEO title="Strony internetowe - Adrian Domański - Projekty" />
       <BiggerStyledSection>
         <SectionTitle>Moje projekty</SectionTitle>
         <Paragraph className="has-text-centered mb-6"></Paragraph>

@@ -101,6 +101,7 @@ export const SectionTitle = styled.h1.attrs({
 
 export const StyledSection = styled.div.attrs({ className: "section" })`
   max-width: ${({ theme }) => theme.pageMaxWidth};
+  width: 100vw;
   margin: 0 auto;
 `
 
@@ -127,8 +128,11 @@ export const Paragraph = styled.p.attrs({
   "data-sal-easing": "ease",
   "data-sal-duration": "1000",
 })`
-  font-size: 1.4rem;
   line-height: 1.75;
+
+  @media screen and (min-width: 600px) {
+    font-size: 1.4rem;
+  }
 `
 
 export const StyledList = styled.ul`
@@ -192,6 +196,10 @@ export const Blockquote = styled.blockquote.attrs({
     &.is-danger {
       background-color: ${({ theme }) => theme.colors.darkerGrey};
       border-color: hsl(348, 100%, 61%);
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 1rem;
     }
   }
 `

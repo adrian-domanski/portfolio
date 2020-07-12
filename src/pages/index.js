@@ -18,6 +18,7 @@ import {
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
 import { Link } from "gatsby"
+import SEO from "../components/seo"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
@@ -222,6 +223,7 @@ const Home = () => {
 
   return (
     <Layout>
+      <SEO title="Strony internetowe - Adrian Domański" />
       <Header>
         <div className="background-filter">
           <Particles
@@ -289,7 +291,7 @@ const Home = () => {
           <span className="has-text-primary">potrafię stworzyć</span> portfolio,
           stronę firmową przedstawiającą daną działalność, czy jakąkolwiek inną
           witrynę na wybrany temat. Z wielką chęcią pomogę Ci w realizacji
-          twojego wymarzonego projektu i zadbam o wszelkie aspekty techniczne.
+          twojego wymarzonego projektu i zadbam o wszelkie sprawy techniczne.
         </Paragraph>
       </StyledSection>
 

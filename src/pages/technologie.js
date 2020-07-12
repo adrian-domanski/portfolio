@@ -20,6 +20,7 @@ import mongodb from "../images/technologies/mongodb.png"
 import nextjs from "../images/technologies/nextjs.png"
 import nodejs from "../images/technologies/nodejs.png"
 import react from "../images/technologies/react.png"
+import SEO from "../components/seo"
 
 const TechnologiesGroup = styled.div`
   display: flex;
@@ -46,6 +47,7 @@ const PrimaryText = styled.span`
 const Technologies = () => {
   return (
     <Layout>
+      <SEO title="Strony internetowe - Adrian Domański - Technologie" />
       <StyledSection>
         <SectionTitle>Technologie</SectionTitle>
         <Paragraph className="has-text-centered">

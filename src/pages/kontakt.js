@@ -8,41 +8,41 @@ import {
 } from "../utils/styled/components"
 import styled from "styled-components"
 import ContactForm from "../components/ContactForm"
+import SEO from "../components/seo"
 
 const StyledContactPage = styled.div`
   &&& {
     a input {
-        cursor: pointer;
-      }
+      cursor: pointer;
     }
+  }
 
-    .control.has-icons-left .input:focus ~ .icon,
-    .control.has-icons-left .select:focus ~ .icon,
-    .control.has-icons-right .input:focus ~ .icon,
-    .control.has-icons-right .select:focus ~ .icon {
-      color: ${({ theme }) => theme.colors.darkerWhite};
-    }
+  .control.has-icons-left .input:focus ~ .icon,
+  .control.has-icons-left .select:focus ~ .icon,
+  .control.has-icons-right .input:focus ~ .icon,
+  .control.has-icons-right .select:focus ~ .icon {
+    color: ${({ theme }) => theme.colors.darkerWhite};
+  }
 
-    label {
-      color: ${({ theme }) => theme.colors.darkerWhite};
-    }
+  label {
+    color: ${({ theme }) => theme.colors.darkerWhite};
+  }
 
-    input,
-    textarea {
-      background-color: rgba(217, 217, 217, 0.17);
+  input,
+  textarea {
+    background-color: rgba(217, 217, 217, 0.17);
+    border: none;
+    color: ${({ theme }) => theme.colors.lightWhite};
+
+    :active,
+    :focus {
+      outline: none;
       border: none;
-      color: ${({ theme }) => theme.colors.lightWhite};
+      box-shadow: none;
+    }
 
-      :active,
-      :focus {
-        outline: none;
-        border: none;
-        box-shadow: none;
-      }
-
-      ::placeholder {
-        color: ${({ theme }) => theme.colors.darkerWhite};
-      }
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.darkerWhite};
     }
   }
 `
@@ -50,10 +50,11 @@ const StyledContactPage = styled.div`
 const Contact = () => {
   return (
     <Layout>
+      <SEO title="Strony internetowe - Adrian Domański - Kontakt" />
       <StyledContactPage>
         <StyledSection className="mb-6">
           <SectionTitle>Kontakt</SectionTitle>
-          <Paragraph>
+          <Paragraph className="has-text-centered-mobile">
             Masz pomysł na nowy{" "}
             <span className="has-text-primary">projekt</span>? Interesuje Cię{" "}
             <span className="has-text-primary">współpraca</span>? Jestem otwarty
