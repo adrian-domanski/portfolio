@@ -91,10 +91,13 @@ const ContactForm = () => {
       )}
 
       <div className="field">
-        <label className="label">Tytuł wiadomości</label>
+        <label className="label" htmlFor="title">
+          Tytuł wiadomości
+        </label>
         <div className="control has-icons-left">
           <input
             className="input"
+            id="title"
             type="text"
             name="title"
             placeholder="Tytuł wiadomości"
@@ -108,10 +111,13 @@ const ContactForm = () => {
       </div>
 
       <div className="field">
-        <label className="label">Email</label>
+        <label className="label" htmlFor="email">
+          Email
+        </label>
         <div className="control has-icons-left">
           <input
             className="input"
+            id="email"
             type="email"
             name="email"
             value={email}
@@ -125,9 +131,12 @@ const ContactForm = () => {
       </div>
 
       <div className="field">
-        <label className="label">Treść</label>
+        <label className="label" htmlFor="content">
+          Treść
+        </label>
         <div className="control">
           <textarea
+            id="content"
             name="content"
             className="textarea"
             value={content}

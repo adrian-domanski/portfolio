@@ -62,9 +62,12 @@ const Contact = () => {
             na poniższy adres e-mail lub skorzystaj z formularza kontaktowego.
           </Paragraph>
           <div className="field mt-5">
-            <label className="label">E-mail</label>
+            <label className="label" htmlFor="my-email">
+              E-mail
+            </label>
             <div className="control has-icons-left">
               <input
+                id="my-email"
                 className="input"
                 type="text"
                 placeholder="Tytuł wiadomości"
@@ -77,10 +80,17 @@ const Contact = () => {
             </div>
           </div>
           <div className="field mt-4">
-            <label className="label">GitHub</label>
+            <label className="label" htmlFor="my-github">
+              GitHub
+            </label>
             <div className="control has-icons-left">
-              <a href="https://github.com/adrian-domanski" target="_blank">
+              <a
+                href="https://github.com/adrian-domanski"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <input
+                  id="my-github"
                   className="input"
                   type="text"
                   placeholder="Tytuł wiadomości"
