@@ -157,21 +157,29 @@ const Navbar = () => {
 
           <NavbarLink
             to="/projekty"
-            className={`${pathname === "/projekty" && "active"}`}
+            className={`${
+              (pathname === "/projekty" || pathname === "/projekty/") &&
+              "active"
+            }`}
           >
             Projekty
           </NavbarLink>
 
           <NavbarLink
             to="/technologie"
-            className={`${pathname === "/technologie" && "active"}`}
+            className={`${
+              (pathname === "/technologie" || pathname === "/technologie/") &&
+              "active"
+            }`}
           >
             Technologie
           </NavbarLink>
 
           <NavbarLink
             to="/kontakt"
-            className={`${pathname === "/kontakt" && "active"}`}
+            className={`${
+              (pathname === "/kontakt" || pathname === "/kontakt/") && "active"
+            }`}
           >
             Kontakt
           </NavbarLink>
