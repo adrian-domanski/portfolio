@@ -13,16 +13,17 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.darkGrey};
     color: #cccccc;
     font-size: 20px;
-    width:100vw;
-    max-width:100vw;
-    overflow-x: hidden;
   }
 `
 
 const PageWrapper = styled.div`
   display: grid;
-  min-height: 100vh;
   grid-template-rows: auto 1fr auto;
+  width: 100vw;
+`
+
+const StyledMain = styled.main`
+  overflow-x: hidden;
 `
 
 const Layout = ({ children, darkFooter }) => {
@@ -32,7 +33,7 @@ const Layout = ({ children, darkFooter }) => {
       <SEO />
       <PageWrapper>
         <Navbar />
-        <main>{children}</main>
+        <StyledMain>{children}</StyledMain>
         <Footer darkFooter={darkFooter} />
       </PageWrapper>
     </ThemeProvider>

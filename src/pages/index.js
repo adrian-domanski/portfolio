@@ -103,7 +103,7 @@ const StyledButton = styled(Button)`
 `
 
 const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme }) => theme.colors.darkerGrey};
   color: ${({ theme }) => theme.colors.darkerWhite};
   height: 100%;
   padding: 1rem 0;
@@ -161,7 +161,7 @@ const MyProjectsGrid = styled.div`
 
   .my-project__info {
     padding: 2rem;
-    background-color: ${({ theme }) => theme.colors.darkerGrey};
+    background-color: ${({ theme }) => theme.colors.darkGrey};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -228,7 +228,7 @@ const Home = () => {
   `)
 
   return (
-    <Layout>
+    <Layout darkFooter>
       <SEO title="Strony internetowe - Adrian Domański" />
       <Header>
         <div className="background-filter">
@@ -307,6 +307,13 @@ const Home = () => {
       <DarkerSection right>
         <StyledSection>
           <SectionTitle>Jakie strony tworzę?</SectionTitle>
+          <Paragraph className="has-text-centered mb-6">
+            Tworzę zarówno strony statyczne, w których zawartość nie ulega
+            częstej aktualizacji jak i bardziej dynamiczne wykorzystujące system
+            do zarządzania treściami (CMS). W zależności od twoich potrzeb
+            doradzę Ci, oraz przedstawie najodpowiedniejsze rozwiązanie w danej
+            sytuacji.
+          </Paragraph>
 
           <StyledList
             className="mb-6"
@@ -322,172 +329,175 @@ const Home = () => {
             <StyledListItem>Strona personalna</StyledListItem>
             <StyledListItem>Strona w oparciu o CMS</StyledListItem>
           </StyledList>
-
-          <Paragraph className="has-text-centered">
-            Potrafię przygotować{" "}
-            <span className="has-text-primary">projekt graficzny</span>, który
-            po omówieniu z klientem wdrażam za pomocą odpowiednich rozwiązań.
-            Dbam o pozycjonowanie strony, kierując się zbiorem obowiązujących
-            zasad i standardów.
-          </Paragraph>
-          <br />
-          <Paragraph className="has-text-centered">
-            Moje strony są niezwykle{" "}
-            <span className="has-text-primary">szybkie</span> i{" "}
-            <span className="has-text-primary">wydajne</span> - zobacz sam, jak
-            błyskawicznie możesz przemieszczać się między podstronami używając
-            górnej nawigacji.
-          </Paragraph>
         </StyledSection>
-        <BiggerStyledSection>
-          <div className="columns">
-            <div className="column is-4-desktop">
-              <StyledCard
-                className="card"
-                data-sal="slide-right"
-                data-sal-easing="ease"
-                data-sal-duration="1000"
-              >
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-pencil-ruler"></i>
-                  </div>
-                  <div className="card-title">Projektowanie</div>
-                  <div className="card-text">
-                    Jasny cel działania i wizja efektu końcowego są niezwykle
-                    ważne. Przed przystąpieniem do działania tworzę projekt
-                    strony w oparciu o takie narzędzia jak Adobe XD czy
-                    Photoshop
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-
-            <div className="column is-4-desktop">
-              <StyledCard
-                className="card"
-                data-sal="fade"
-                data-sal-easing="ease"
-                data-sal-duration="1000"
-              >
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-laptop-code"></i>
-                  </div>
-                  <div className="card-title">Programowanie</div>
-                  <div className="card-text">
-                    Posiadam umiejętności, które pozwalają mi na wdrożenie
-                    projektu od samego zakodowania po hosting i przypisanie
-                    domeny.
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-
-            <div className="column is-4-desktop">
-              <StyledCard
-                className="card"
-                data-sal="slide-left"
-                data-sal-easing="ease"
-                data-sal-duration="1000"
-              >
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-cogs"></i>
-                  </div>
-                  <div className="card-title">Wsparcie techniczne</div>
-                  <div className="card-text">
-                    Zajmę się wszelkimi sprawami technicznymi i przeprowadzę
-                    cały projekt od początku do końca. Służę pomocą w razie
-                    wystąpienia jakichkolwiek problemów.
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-          </div>
-          <div
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
-            <Link to="/technologie">
-              <StyledButton
-                className="button"
-                data-sal="slide-left"
-                data-sal-easing="ease"
-                data-sal-duration="1000"
-              >
-                Zobacz więcej
-              </StyledButton>
-            </Link>
-          </div>
-        </BiggerStyledSection>
       </DarkerSection>
-      <StyledSection>
-        <SectionTitle>Moje projekty</SectionTitle>
 
-        <MyProjectsGrid>
-          {query.allContentfulProjects.edges.map(({ node }, index) => (
-            <div
-              key={node.id}
-              className="my-project"
-              data-sal={`slide-${index % 2 === 0 ? "right" : "left"}`}
+      <StyledSection>
+        <SectionTitle>Co oferuję?</SectionTitle>
+
+        <Paragraph className="has-text-centered">
+          Potrafię przygotować{" "}
+          <span className="has-text-primary">projekt graficzny</span>, który po
+          omówieniu z klientem wdrażam za pomocą odpowiednich rozwiązań. Dbam o
+          pozycjonowanie strony, kierując się zbiorem obowiązujących zasad i
+          standardów.
+        </Paragraph>
+        <br />
+        <Paragraph className="has-text-centered">
+          Moje strony są niezwykle{" "}
+          <span className="has-text-primary">szybkie</span> i{" "}
+          <span className="has-text-primary">wydajne</span> - zobacz sam, jak
+          błyskawicznie możesz przemieszczać się między podstronami używając
+          górnej nawigacji.
+        </Paragraph>
+      </StyledSection>
+      <BiggerStyledSection>
+        <div className="columns">
+          <div className="column is-4-desktop">
+            <StyledCard
+              className="card"
+              data-sal="slide-right"
               data-sal-easing="ease"
               data-sal-duration="1000"
             >
-              <div className="my-project__img">
-                <Link to={`/projekty${node.slug}`} className="my-project__link">
-                  <StyledImg
-                    src={node.images[0].fluid.src}
-                    alt={`Podgląd strony ${node.title}`}
-                  />
-                </Link>
-              </div>
-              <div className="my-project__info">
-                <div className="project-info">
-                  <SectionSubtitle className="my-project__info-title">
-                    {node.title}
-                  </SectionSubtitle>
-                  <p className="my-project__info-short my-3">{node.short}</p>
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-pencil-ruler"></i>
                 </div>
-                <Link
-                  to={`/projekty${node.slug}`}
-                  className="my-project__link show-more"
-                >
-                  <p className="has-text-primary">Szczegóły projektu...</p>
-                </Link>
+                <div className="card-title">Projektowanie</div>
+                <div className="card-text">
+                  Jasny cel działania i wizja efektu końcowego są niezwykle
+                  ważne. Przed przystąpieniem do działania tworzę projekt strony
+                  w oparciu o takie narzędzia jak Adobe XD czy Photoshop
+                </div>
               </div>
-            </div>
-          ))}
-        </MyProjectsGrid>
+            </StyledCard>
+          </div>
+
+          <div className="column is-4-desktop">
+            <StyledCard
+              className="card"
+              data-sal="fade"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-laptop-code"></i>
+                </div>
+                <div className="card-title">Programowanie</div>
+                <div className="card-text">
+                  Posiadam umiejętności, które pozwalają mi na wdrożenie
+                  projektu od samego zakodowania po hosting i przypisanie
+                  domeny.
+                </div>
+              </div>
+            </StyledCard>
+          </div>
+
+          <div className="column is-4-desktop">
+            <StyledCard
+              className="card"
+              data-sal="slide-left"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <div className="card-title">Wsparcie techniczne</div>
+                <div className="card-text">
+                  Zajmę się wszelkimi sprawami technicznymi i przeprowadzę cały
+                  projekt od początku do końca. Służę pomocą w razie wystąpienia
+                  jakichkolwiek problemów.
+                </div>
+              </div>
+            </StyledCard>
+          </div>
+        </div>
         <div
           data-sal="slide-up"
           data-sal-easing="ease"
           data-sal-duration="1000"
         >
-          <Link to="/projekty">
-            <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+          <Link to="/technologie">
+            <StyledButton
+              className="button"
+              data-sal="slide-left"
+              data-sal-easing="ease"
+              data-sal-duration="1000"
+            >
+              Zobacz więcej
+            </StyledButton>
           </Link>
         </div>
-      </StyledSection>
-
+      </BiggerStyledSection>
       <DarkerSection>
         <StyledSection>
-          <SectionTitle>Kontakt</SectionTitle>
-          <Paragraph className="has-text-centered mb-6">
-            Masz pomysł na nowy projekt? Interesuje Cię współpraca? Informacje
-            kontaktowe znajdziesz{" "}
-            <Link
-              to="/kontakt"
-              className="has-text-primary has-text-weight-bold"
-            >
-              klikając tutaj
+          <SectionTitle>Moje projekty</SectionTitle>
+
+          <MyProjectsGrid>
+            {query.allContentfulProjects.edges.map(({ node }, index) => (
+              <div
+                key={node.id}
+                className="my-project"
+                data-sal={`slide-${index % 2 === 0 ? "right" : "left"}`}
+                data-sal-easing="ease"
+                data-sal-duration="1000"
+              >
+                <div className="my-project__img">
+                  <Link
+                    to={`/projekty${node.slug}`}
+                    className="my-project__link"
+                  >
+                    <StyledImg
+                      src={node.images[0].fluid.src}
+                      alt={`Podgląd strony ${node.title}`}
+                    />
+                  </Link>
+                </div>
+                <div className="my-project__info">
+                  <div className="project-info">
+                    <SectionSubtitle className="my-project__info-title">
+                      {node.title}
+                    </SectionSubtitle>
+                    <p className="my-project__info-short my-3">{node.short}</p>
+                  </div>
+                  <Link
+                    to={`/projekty${node.slug}`}
+                    className="my-project__link show-more"
+                  >
+                    <p className="has-text-primary">Szczegóły projektu...</p>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </MyProjectsGrid>
+          <div
+            data-sal="slide-up"
+            data-sal-easing="ease"
+            data-sal-duration="1000"
+          >
+            <Link to="/projekty">
+              <StyledButton className="mt-6">Zobacz więcej</StyledButton>
             </Link>
-            . Możesz również napisać do mnie za pomocą poniższego formularza.
-          </Paragraph>
-          <ContactForm />
+          </div>
         </StyledSection>
       </DarkerSection>
+
+      <StyledSection>
+        <SectionTitle>Kontakt</SectionTitle>
+        <Paragraph className="has-text-centered mb-6">
+          Masz pomysł na nowy projekt? Interesuje Cię współpraca? Informacje
+          kontaktowe znajdziesz{" "}
+          <Link to="/kontakt" className="has-text-primary has-text-weight-bold">
+            klikając tutaj
+          </Link>
+          . Możesz również napisać do mnie za pomocą poniższego formularza.
+        </Paragraph>
+        <ContactForm />
+      </StyledSection>
     </Layout>
   )
 }

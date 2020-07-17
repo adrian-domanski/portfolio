@@ -6,6 +6,7 @@ import { useLocation } from "@reach/router"
 
 const StyledNavbar = styled.nav`
   &&& {
+    padding: 0 0.75rem;
     background-color: ${({ theme }) => theme.colors.darkerGrey};
     box-shadow: 0 2px 3px #00000050;
     position: sticky;
@@ -92,7 +93,6 @@ const NavbarLink = styled(Link).attrs({ className: "navbar-item" })`
 const StyledLogo = styled.img`
   display: block;
   height: 40px;
-  padding-left: 0.75rem;
   margin: auto;
 
   ${({ theme }) => theme.media.mobile} {
