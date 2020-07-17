@@ -23,16 +23,21 @@ import SEO from "../components/seo"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
-  background-size: cover;
   height: 600px;
+  width: 100vw;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
+
+  ${({ theme }) => theme.media.desktop} {
+    background-attachment: fixed;
+  }
 
   &:before,
   &:after {
@@ -276,7 +281,7 @@ const Home = () => {
         </div>
       </Header>
       <StyledSection>
-        <SectionTitle data-sal-delay="1000">Kilka słów o mnie</SectionTitle>
+        <SectionTitle>Kilka słów o mnie</SectionTitle>
         <StyledGatsbyImg
           fluid={query.placeholderImage.childImageSharp.fluid}
           alt="Tworzenie storny internetowej, laptop, notatnik i kubek"

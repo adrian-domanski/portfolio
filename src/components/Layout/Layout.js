@@ -13,6 +13,9 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.colors.darkGrey};
     color: #cccccc;
     font-size: 20px;
+    width:100vw;
+    max-width:100vw;
+    overflow-x: hidden;
   }
 `
 
