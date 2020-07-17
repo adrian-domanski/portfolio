@@ -354,9 +354,10 @@ const Home = () => {
                   </div>
                   <div className="card-title">Projektowanie</div>
                   <div className="card-text">
-                    W głębi duszy jestem bardziej programistą niż grafikiem, ale
-                    potrafię stworzyć projekt strony w oparciu o takie narzędzia
-                    jak Adobe XD czy Photoshop
+                    Jasny cel działania i wizja efektu końcowego są niezwykle
+                    ważne. Przed przystąpieniem do działania tworzę projekt
+                    strony w oparciu o takie narzędzia jak Adobe XD czy
+                    Photoshop
                   </div>
                 </div>
               </StyledCard>
