@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { SectionSubtitle, Paragraph } from "../utils/styled/components"
+import { SectionSubtitle } from "../utils/styled/components"
 import { Link } from "gatsby"
 
 const Card = styled.div`

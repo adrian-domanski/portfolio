@@ -235,10 +235,10 @@ const Home = () => {
         <div className="background-filter">
           <Particles
             className="home-page-header__particles is-hidden-mobile"
-            params={particlesConfig.header}
+            params={particlesConfig}
           />
         </div>
-        <Fade bottom cascade duration={2000}>
+        <Fade bottom cascade>
           <div className="header-content">
             <p>
               Witaj, jestem{" "}
