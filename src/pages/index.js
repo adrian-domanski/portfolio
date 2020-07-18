@@ -15,6 +15,7 @@ import {
   StyledListItem,
   StyledGatsbyImg,
   SectionSubtitle,
+  Blockquote,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
@@ -290,11 +291,13 @@ const Home = () => {
         <StyledSection>
           <SectionTitle>Jakie strony tworzę?</SectionTitle>
           <Paragraph className="has-text-centered mb-6">
-            Tworzę zarówno strony statyczne, w których zawartość nie ulega
-            częstej aktualizacji jak i bardziej dynamiczne wykorzystujące system
-            do zarządzania treściami (CMS). W zależności od twoich potrzeb
-            doradzę Ci, oraz przedstawie najodpowiedniejsze rozwiązanie w danej
-            sytuacji.
+            Tworzę zarówno strony{" "}
+            <span className="has-text-primary">statyczne</span>, w których
+            zawartość nie ulega częstej aktualizacji jak i bardziej{" "}
+            <span className="has-text-primary">dynamiczne</span> wykorzystujące
+            system do zarządzania treściami (CMS). W zależności od twoich
+            potrzeb doradzę Ci, oraz przedstawie najodpowiedniejsze rozwiązanie
+            w danej sytuacji.
           </Paragraph>
 
           <StyledList className="mb-6">
@@ -320,13 +323,15 @@ const Home = () => {
           standardów.
         </Paragraph>
         <br />
-        <Paragraph className="has-text-centered">
-          Moje strony są niezwykle{" "}
-          <span className="has-text-primary">szybkie</span> i{" "}
-          <span className="has-text-primary">wydajne</span> - zobacz sam, jak
-          błyskawicznie możesz przemieszczać się między podstronami używając
-          górnej nawigacji.
-        </Paragraph>
+        <div className="content">
+          <Blockquote className="is-primary has-text-centered">
+            Moje strony są niezwykle{" "}
+            <span className="has-text-primary">szybkie</span> i{" "}
+            <span className="has-text-primary">wydajne</span> - zobacz sam, jak
+            błyskawicznie możesz przemieszczać się między podstronami używając
+            górnej nawigacji.
+          </Blockquote>
+        </div>
       </StyledSection>
       <BiggerStyledSection>
         <div className="columns">

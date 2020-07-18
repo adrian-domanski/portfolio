@@ -23,8 +23,10 @@ const Footer = ({ darkFooter }) => {
       </p>
       <p>
         <a
-          href="https://github.com/adrian-domanski"
           className="has-text-grey-light"
+          href="https://github.com/adrian-domanski"
+          target="_blank"
+          rel="noreferrer"
         >
           GitHub <i className="fab fa-github"></i>
         </a>
