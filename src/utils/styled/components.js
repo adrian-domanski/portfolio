@@ -160,24 +160,31 @@ export const StyledListItem = styled.li`
   }
   font-size: 1.5rem;
 `
-export const SectionSubtitle = styled.h1`
-  font-size: 1.6rem;
-  color: ${({ theme }) => theme.colors.lightWhite};
-  margin-bottom: 26px;
-  position: relative;
-  padding-left: 12px;
+export const SectionSubtitle = withReveal(
+  styled.h1`
+    font-size: 1.6rem;
+    color: ${({ theme }) => theme.colors.lightWhite};
+    margin-bottom: 26px;
+    position: relative;
+    padding-left: 12px;
 
-  :before {
-    content: "";
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    display: block;
-    left: 0;
-    top: 0;
-    background: ${({ theme }) => theme.colors.primary};
-  }
-`
+    :before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      display: block;
+      left: 0;
+      top: 0;
+      background: ${({ theme }) => theme.colors.primary};
+      transform: scaleY(0);
+      transition: transform 0.5s ease-in-out;
+      transition-delay: 0.5s;
+      transform-origin: bottom;
+    }
+  `,
+  <Reveal effect="subsection-title-revealed" />
+)
 
 export const Blockquote = styled.blockquote`
   && {

@@ -30,6 +30,12 @@ const GlobalStyles = createGlobalStyle`
 
     }
   }
+
+  .subsection-title-revealed h1 {
+    :before {
+      transform: scaleY(1);
+    }
+  }
 `
 
 const PageWrapper = styled.div`
