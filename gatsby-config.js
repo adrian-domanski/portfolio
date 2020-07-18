@@ -35,7 +35,6 @@ module.exports = {
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-contentful`,

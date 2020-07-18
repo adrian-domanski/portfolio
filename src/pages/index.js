@@ -20,6 +20,7 @@ import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
 import { Link } from "gatsby"
 import SEO from "../components/seo"
+import Fade from "react-reveal/Fade"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
@@ -237,48 +238,29 @@ const Home = () => {
             params={particlesConfig.header}
           />
         </div>
-        <div className="header-content">
-          <p
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
-            Witaj, jestem{" "}
-            <span className="has-text-primary has-text-weight-bold">
-              Adrian
-            </span>
-          </p>
-          <p
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-            data-sal-delay="500"
-          >
-            Zajmuję się tworzeniem stron internetowych
-          </p>
-          <p
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-delay="750"
-            data-sal-duration="1000"
-          >
-            Front End <span className="has-text-primary">|</span> Back End{" "}
-            <span className="has-text-primary">|</span>
-            Design
-          </p>
-          <div
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-            data-sal-delay="1000"
-          >
-            <Link to="/kontakt">
-              <StyledButton className="button mt-5 pointer-active">
-                Kontakt
-              </StyledButton>
-            </Link>
+        <Fade bottom cascade duration={2000}>
+          <div className="header-content">
+            <p>
+              Witaj, jestem{" "}
+              <span className="has-text-primary has-text-weight-bold">
+                Adrian
+              </span>
+            </p>
+            <p>Zajmuję się tworzeniem stron internetowych</p>
+            <p>
+              Front End <span className="has-text-primary">|</span> Back End{" "}
+              <span className="has-text-primary">|</span>
+              Design
+            </p>
+            <div>
+              <Link to="/kontakt">
+                <StyledButton className="button mt-5 pointer-active">
+                  Kontakt
+                </StyledButton>
+              </Link>
+            </div>
           </div>
-        </div>
+        </Fade>
       </Header>
       <StyledSection>
         <SectionTitle>Kilka słów o mnie</SectionTitle>
@@ -315,12 +297,7 @@ const Home = () => {
             sytuacji.
           </Paragraph>
 
-          <StyledList
-            className="mb-6"
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
+          <StyledList className="mb-6">
             <StyledListItem>Wizytówka</StyledListItem>
             <StyledListItem>Strona firmowa</StyledListItem>
             <StyledListItem>Reklama usług</StyledListItem>
@@ -354,12 +331,7 @@ const Home = () => {
       <BiggerStyledSection>
         <div className="columns">
           <div className="column is-4-desktop">
-            <StyledCard
-              className="card"
-              data-sal="slide-right"
-              data-sal-easing="ease"
-              data-sal-duration="1000"
-            >
+            <StyledCard className="card">
               <div className="card-content">
                 <div className="card-icon">
                   <i className="fas fa-pencil-ruler"></i>
@@ -375,12 +347,7 @@ const Home = () => {
           </div>
 
           <div className="column is-4-desktop">
-            <StyledCard
-              className="card"
-              data-sal="fade"
-              data-sal-easing="ease"
-              data-sal-duration="1000"
-            >
+            <StyledCard className="card">
               <div className="card-content">
                 <div className="card-icon">
                   <i className="fas fa-laptop-code"></i>
@@ -396,12 +363,7 @@ const Home = () => {
           </div>
 
           <div className="column is-4-desktop">
-            <StyledCard
-              className="card"
-              data-sal="slide-left"
-              data-sal-easing="ease"
-              data-sal-duration="1000"
-            >
+            <StyledCard className="card">
               <div className="card-content">
                 <div className="card-icon">
                   <i className="fas fa-cogs"></i>
@@ -416,20 +378,9 @@ const Home = () => {
             </StyledCard>
           </div>
         </div>
-        <div
-          data-sal="slide-up"
-          data-sal-easing="ease"
-          data-sal-duration="1000"
-        >
+        <div>
           <Link to="/technologie">
-            <StyledButton
-              className="button"
-              data-sal="slide-left"
-              data-sal-easing="ease"
-              data-sal-duration="1000"
-            >
-              Zobacz więcej
-            </StyledButton>
+            <StyledButton className="button">Zobacz więcej</StyledButton>
           </Link>
         </div>
       </BiggerStyledSection>
@@ -439,13 +390,7 @@ const Home = () => {
 
           <MyProjectsGrid>
             {query.allContentfulProjects.edges.map(({ node }, index) => (
-              <div
-                key={node.id}
-                className="my-project"
-                data-sal={`slide-${index % 2 === 0 ? "right" : "left"}`}
-                data-sal-easing="ease"
-                data-sal-duration="1000"
-              >
+              <div key={node.id} className="my-project">
                 <div className="my-project__img">
                   <Link
                     to={`/projekty${node.slug}`}
@@ -474,11 +419,7 @@ const Home = () => {
               </div>
             ))}
           </MyProjectsGrid>
-          <div
-            data-sal="slide-up"
-            data-sal-easing="ease"
-            data-sal-duration="1000"
-          >
+          <div>
             <Link to="/projekty">
               <StyledButton className="mt-6">Zobacz więcej</StyledButton>
             </Link>

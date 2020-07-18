@@ -9,6 +9,7 @@ import {
 import { graphql } from "gatsby"
 import ProjectTile from "../components/ProjectTile"
 import SEO from "../components/seo"
+import Fade from "react-reveal/Fade"
 
 const Projects = ({ data }) => {
   const projects = data.allContentfulProjects.edges
@@ -36,7 +37,9 @@ const Projects = ({ data }) => {
             zamieszczam poniżej kilka własnych projektów:
           </Blockquote>
         </div>
-        <div className="columns is-multiline">{projectsList}</div>
+        <Fade>
+          <div className="columns is-multiline">{projectsList}</div>
+        </Fade>
       </BiggerStyledSection>
     </Layout>
   )

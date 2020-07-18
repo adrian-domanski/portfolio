@@ -1,5 +1,8 @@
+import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import Reveal from "react-reveal/Reveal"
+import withReveal from "react-reveal/withReveal"
 
 export const Button = styled.button.attrs({ className: "button" })`
   &&& {
@@ -64,44 +67,45 @@ export const Button = styled.button.attrs({ className: "button" })`
   }
 `
 
-export const SectionTitle = styled.h1.attrs({
-  "data-sal": "slide-up",
-  "data-sal-easing": "ease",
-  "data-sal-duration": "1000",
-})`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.lightWhite};
-  text-align: center;
-  display: table;
-  position: relative;
-  margin: 0 auto;
-  margin-bottom: 72px;
+export const SectionTitle = withReveal(
+  styled.h1`
+    font-size: 2rem;
+    color: ${({ theme }) => theme.colors.lightWhite};
+    text-align: center;
+    display: table;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 72px;
 
-  :before,
-  :after {
-    content: "";
-    display: block;
-    position: absolute;
-    background: ${({ theme }) => theme.colors.primary};
-    width: 70%;
-    height: 3px;
-    border-radius: 50px;
-  }
+    :before,
+    :after {
+      content: "";
+      display: block;
+      position: absolute;
+      background: ${({ theme }) => theme.colors.primary};
+      width: 70%;
+      height: 3px;
+      border-radius: 50px;
+      transition: left 0.5s ease-in-out, right 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
 
-  :before {
-    bottom: -10px;
-    left: -12px;
-  }
+    :before {
+      bottom: -10px;
+      left: -200px;
+    }
 
-  :after {
-    bottom: -24px;
-    right: -12px;
-  }
-`
+    :after {
+      bottom: -24px;
+      right: -200px;
+    }
+  `,
+  <Reveal effect="section-title-revealed" />
+)
 
 export const StyledSection = styled.div.attrs({ className: "section" })`
   max-width: ${({ theme }) => theme.pageMaxWidth};
-  width: 100vw;
   margin: 0 auto;
 `
 
@@ -123,11 +127,7 @@ export const StyledGatsbyImg = styled(Img)`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
-export const Paragraph = styled.p.attrs({
-  "data-sal": "slide-up",
-  "data-sal-easing": "ease",
-  "data-sal-duration": "1000",
-})`
+export const Paragraph = styled.p`
   line-height: 1.75;
 
   @media screen and (min-width: 600px) {
@@ -160,11 +160,7 @@ export const StyledListItem = styled.li`
   }
   font-size: 1.5rem;
 `
-export const SectionSubtitle = styled.h1.attrs({
-  "data-sal": "slide-up",
-  "data-sal-easing": "ease",
-  "data-sal-duration": "1000",
-})`
+export const SectionSubtitle = styled.h1`
   font-size: 1.6rem;
   color: ${({ theme }) => theme.colors.lightWhite};
   margin-bottom: 26px;
@@ -183,11 +179,7 @@ export const SectionSubtitle = styled.h1.attrs({
   }
 `
 
-export const Blockquote = styled.blockquote.attrs({
-  "data-sal": "slide-up",
-  "data-sal-easing": "ease",
-  "data-sal-duration": "1000",
-})`
+export const Blockquote = styled.blockquote`
   && {
     &.is-primary {
       background-color: ${({ theme }) => theme.colors.darkerGrey};

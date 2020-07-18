@@ -14,12 +14,28 @@ const GlobalStyles = createGlobalStyle`
     color: #cccccc;
     font-size: 20px;
   }
+
+  .section-title-revealed h1 {
+    :before,:after {
+      opacity: 1
+    }
+
+    :before {
+      left: -12px;
+
+    }
+
+    :after {
+      right: -12px;
+
+    }
+  }
 `
 
 const PageWrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
-  width: 100vw;
+  width: 100%;
 `
 
 const StyledMain = styled.main`
