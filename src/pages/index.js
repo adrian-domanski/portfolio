@@ -1,8 +1,8 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import styled from "styled-components"
-import Particles from "react-particles-js"
-import particlesConfig from "../utils/particlesConfig.json"
+// import Particles from "react-particles-js"
+// import particlesConfig from "../utils/particlesConfig.json"
 import {
   Button,
   SectionTitle,
@@ -147,10 +147,10 @@ const Home = () => {
       <SEO title="Strony internetowe - Adrian Domański" />
       <Header>
         <div className="background-filter">
-          <Particles
+          {/* <Particles
             className="home-page-header__particles is-hidden-mobile"
             params={particlesConfig}
-          />
+          /> */}
         </div>
         <Fade bottom cascade>
           <div className="header-content">
@@ -263,7 +263,6 @@ const Home = () => {
               </div>
             </StyledCard>
           </div>
-
           <div className="column is-4-desktop">
             <StyledCard className="card">
               <div className="card-content">
