@@ -1,8 +1,8 @@
 import React from "react"
 import Layout from "../components/Layout/Layout"
 import styled from "styled-components"
-// import Particles from "react-particles-js"
-// import particlesConfig from "../utils/particlesConfig.json"
+import Particles from "react-particles-js"
+import particlesConfig from "../utils/particlesConfig.json"
 import {
   Button,
   SectionTitle,
@@ -64,9 +64,9 @@ const Header = styled.header`
     box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
   }
 
-  /* ${({ theme }) => theme.media.desktop} {
+  ${({ theme }) => theme.media.desktop} {
     background-attachment: fixed;
-  } */
+  }
 
   &:before,
   &:after {
@@ -147,10 +147,10 @@ const Home = () => {
       <SEO title="Strony internetowe - Adrian Domański" />
       <Header>
         <div className="background-filter">
-          {/* <Particles
+          <Particles
             className="home-page-header__particles is-hidden-mobile"
             params={particlesConfig}
-          /> */}
+          />
         </div>
         <Fade bottom cascade>
           <div className="header-content">

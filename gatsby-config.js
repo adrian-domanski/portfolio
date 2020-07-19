@@ -1,5 +1,4 @@
 require("dotenv").config()
-
 module.exports = {
   siteMetadata: {
     title: `Strony internetowe | Adrian Domański`,
@@ -27,12 +26,9 @@ module.exports = {
         background_color: `#313131`,
         theme_color: `#ffb633`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
@@ -40,15 +36,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyzer",
-      options: {
-        analyzerPort: 3000,
-        production: true,
       },
     },
   ],
