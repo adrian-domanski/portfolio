@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import { SectionSubtitle } from "../../utils/styled/components"
+import { useStaticQuery, graphql } from "gatsby"
+import ProjectShow from "./ProjectShow"
 
 const MyProjectsGrid = styled.div`
   .my-project {
@@ -53,18 +53,6 @@ const MyProjectsGrid = styled.div`
   }
 `
 
-const StyledImg = styled.img`
-  display: block;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s ease-in-out;
-
-  :hover {
-    transform: scale(1.05);
-  }
-`
-
 const ProjectsGrid = () => {
   const query = useStaticQuery(graphql`
     query {
@@ -99,30 +87,7 @@ const ProjectsGrid = () => {
   return (
     <MyProjectsGrid>
       {query.allContentfulProjects.edges.map(({ node }, index) => (
-        <div key={node.id} className="my-project">
-          <div className="my-project__img">
-            <Link to={`/projekty${node.slug}`} className="my-project__link">
-              <StyledImg
-                src={node.images[0].fluid.src}
-                alt={`Podgląd strony ${node.title}`}
-              />
-            </Link>
-          </div>
-          <div className="my-project__info">
-            <div className="project-info">
-              <SectionSubtitle className="my-project__info-title">
-                {node.title}
-              </SectionSubtitle>
-              <p className="my-project__info-short my-3">{node.short}</p>
-            </div>
-            <Link
-              to={`/projekty${node.slug}`}
-              className="my-project__link show-more"
-            >
-              <p className="has-text-primary">Szczegóły projektu...</p>
-            </Link>
-          </div>
-        </div>
+        <ProjectShow key={index} project={node} />
       ))}
     </MyProjectsGrid>
   )

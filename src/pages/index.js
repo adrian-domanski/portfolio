@@ -30,6 +30,7 @@ const Header = styled.header`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+
   overflow: hidden;
   box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
 
