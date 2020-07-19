@@ -7,7 +7,7 @@ import {
   Blockquote,
 } from "../utils/styled/components"
 import { graphql } from "gatsby"
-import ProjectTile from "../components/ProjectTile"
+import ProjectTile from "../components/Projects/ProjectTile"
 import SEO from "../components/seo"
 
 const Projects = ({ data }) => {

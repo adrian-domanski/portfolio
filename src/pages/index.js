@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout/Layout"
 import styled from "styled-components"
 import Particles from "react-particles-js"
@@ -14,28 +13,56 @@ import {
   StyledList,
   StyledListItem,
   StyledGatsbyImg,
-  SectionSubtitle,
   Blockquote,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Fade from "react-reveal/Fade"
+import ProjectsGrid from "../components/Projects/ProjectsGrid"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
+  -webkit-transform: translateZ(0);
   height: 600px;
-  width: 100vw;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
+
+  .header-content {
+    letter-spacing: 1px;
+    text-shadow: 1px 2px 3px black;
+    z-index: 2;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.75;
+    pointer-events: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media screen and (min-width: 600px) {
+      font-size: 2rem;
+    }
+  }
+  .background-filter {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
+  }
 
   ${({ theme }) => theme.media.desktop} {
     background-attachment: fixed;
@@ -64,33 +91,6 @@ const Header = styled.header`
     height: 0;
     border-bottom: 150px solid ${({ theme }) => theme.colors.primary};
     border-left: 250px solid transparent;
-  }
-
-  .header-content {
-    letter-spacing: 1px;
-    text-shadow: 1px 2px 3px black;
-    z-index: 2;
-    position: relative;
-    color: #fff;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 1.75;
-    pointer-events: none;
-
-    @media screen and (min-width: 600px) {
-      font-size: 2rem;
-    }
-  }
-
-  .background-filter {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
   }
 `
 
@@ -129,68 +129,6 @@ const StyledCard = styled.div`
   }
 `
 
-const MyProjectsGrid = styled.div`
-  .my-project {
-    @media screen and (min-width: 768px) {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .show-more {
-      :hover p {
-        transition: color 0.2s ease-in-out;
-        color: #c38c28 !important;
-      }
-    }
-
-    :not(:last-child) {
-      margin-bottom: 2rem;
-    }
-
-    :nth-child(even) {
-      .my-project__img {
-        grid-column: 2 / 3;
-        grid-row: 1;
-      }
-
-      .my-project__info {
-        grid-column: 1 / 2;
-        grid-row: 1;
-      }
-    }
-  }
-
-  .my-project__info {
-    padding: 2rem;
-    background-color: ${({ theme }) => theme.colors.darkGrey};
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .my-project__info-title {
-    font-size: 1.5rem;
-    color: ${({ theme }) => theme.colors.lightWhite};
-  }
-
-  .my-project__img {
-    overflow: hidden;
-  }
-`
-
-const StyledImg = styled.img`
-  display: block;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.2s ease-in-out;
-
-  :hover {
-    transform: scale(1.05);
-  }
-`
-
 const Home = () => {
   const query = useStaticQuery(graphql`
     query {
@@ -198,31 +136,6 @@ const Home = () => {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      allContentfulProjects(
-        filter: {
-          id: {
-            in: [
-              "07bd2745-a5e2-53fa-9abc-8bd596d220ae"
-              "36b931a8-f86c-5a77-bed0-cd175e11b3ae"
-              "877b4f89-5a6d-5ca8-8ead-30c825ddea89"
-            ]
-          }
-        }
-      ) {
-        edges {
-          node {
-            id
-            title
-            slug
-            short
-            images {
-              fluid {
-                src
-              }
-            }
           }
         }
       }
@@ -393,37 +306,7 @@ const Home = () => {
         <StyledSection>
           <SectionTitle>Moje projekty</SectionTitle>
 
-          <MyProjectsGrid>
-            {query.allContentfulProjects.edges.map(({ node }, index) => (
-              <div key={node.id} className="my-project">
-                <div className="my-project__img">
-                  <Link
-                    to={`/projekty${node.slug}`}
-                    className="my-project__link"
-                  >
-                    <StyledImg
-                      src={node.images[0].fluid.src}
-                      alt={`Podgląd strony ${node.title}`}
-                    />
-                  </Link>
-                </div>
-                <div className="my-project__info">
-                  <div className="project-info">
-                    <SectionSubtitle className="my-project__info-title">
-                      {node.title}
-                    </SectionSubtitle>
-                    <p className="my-project__info-short my-3">{node.short}</p>
-                  </div>
-                  <Link
-                    to={`/projekty${node.slug}`}
-                    className="my-project__link show-more"
-                  >
-                    <p className="has-text-primary">Szczegóły projektu...</p>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </MyProjectsGrid>
+          <ProjectsGrid />
           <div>
             <Link to="/projekty">
               <StyledButton className="mt-6">Zobacz więcej</StyledButton>

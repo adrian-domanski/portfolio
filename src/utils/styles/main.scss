@@ -2,18 +2,14 @@
   font-family: "Nunito";
   src: url("../font/Nunito-Regular.ttf");
   font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../font/Nunito-Bold.ttf");
   font-weight: bold;
-}
-
-@font-face {
-  font-family: "Nunito";
-  src: url("../font/Nunito-SemiBold.ttf");
-  font-weight: 500;
+  font-display: swap;
 }
 
 // Scroll bar
