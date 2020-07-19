@@ -30,7 +30,6 @@ const Header = styled.header`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-
   overflow: hidden;
   box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
 
@@ -65,9 +64,9 @@ const Header = styled.header`
     box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
   }
 
-  ${({ theme }) => theme.media.desktop} {
+  /* ${({ theme }) => theme.media.desktop} {
     background-attachment: fixed;
-  }
+  } */
 
   &:before,
   &:after {
