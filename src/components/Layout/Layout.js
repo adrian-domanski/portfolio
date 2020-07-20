@@ -11,7 +11,7 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.darkGrey};
-    color: #cccccc;
+    color: #e0e0e0;
     font-size: 20px;
   }
 `
@@ -20,6 +20,7 @@ const PageWrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 100%;
+  min-height: 100vh;
 `
 
 const StyledMain = styled.main`

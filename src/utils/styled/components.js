@@ -1,6 +1,9 @@
+import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import withSensor from "../hoc/withSensor"
+import withReveal from "react-reveal/withReveal"
+import Fade from "react-reveal/Fade"
 
 export const Button = styled.button.attrs({ className: "button" })`
   &&& {
@@ -122,13 +125,16 @@ export const StyledGatsbyImg = styled(Img)`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
-export const Paragraph = styled.p`
-  line-height: 1.75;
+export const Paragraph = withReveal(
+  styled.p`
+    line-height: 1.75;
 
-  @media screen and (min-width: 600px) {
-    font-size: 1.4rem;
-  }
-`
+    @media screen and (min-width: 600px) {
+      font-size: 1.4rem;
+    }
+  `,
+  <Fade bottom />
+)
 
 export const StyledList = styled.ul`
   display: grid;

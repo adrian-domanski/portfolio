@@ -11,11 +11,17 @@ const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 80%;
+  text-align: center;
 `
 
 const StyledButton = styled(Button)`
   margin: 0 auto;
   margin-top: 5rem;
+`
+
+const WarningIcon = styled.i`
+  color: ${({ theme }) => theme.colors.primary};
+  font-size: 5rem;
 `
 
 const NotFoundPage = () => (
@@ -24,6 +30,7 @@ const NotFoundPage = () => (
     <PageWrapper>
       <StyledSection>
         <SectionTitle>Niestety, ta strona nie istnieje</SectionTitle>
+        <WarningIcon className="fas fa-exclamation-triangle"></WarningIcon>
         <Link to="/">
           <StyledButton>Strona Główna</StyledButton>
         </Link>

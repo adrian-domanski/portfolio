@@ -3,7 +3,7 @@ export const theme = {
     primary: "#FFB633",
     darkerGrey: "#2C2C2C",
     darkGrey: "#313131",
-    lightWhite: "#DFDFDF",
+    lightWhite: "#f7f7f7",
     darkerWhite: "#B7B7B7",
   },
   pageMaxWidth: "1000px",

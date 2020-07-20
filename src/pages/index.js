@@ -24,7 +24,6 @@ import ProjectsGrid from "../components/Projects/ProjectsGrid"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
-  -webkit-transform: translateZ(0);
   height: 600px;
   width: 100%;
   background-position: center;
@@ -66,6 +65,8 @@ const Header = styled.header`
 
   ${({ theme }) => theme.media.desktop} {
     background-attachment: fixed;
+    transform: translatez(0);
+    -webkit-transform: translatez(0);
   }
 
   &:before,
@@ -248,52 +249,59 @@ const Home = () => {
       </StyledSection>
       <BiggerStyledSection>
         <div className="columns">
-          <div className="column is-4-desktop">
-            <StyledCard className="card">
-              <div className="card-content">
-                <div className="card-icon">
-                  <i className="fas fa-pencil-ruler"></i>
+          <Fade left>
+            <div className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fas fa-pencil-ruler"></i>
+                  </div>
+                  <div className="card-title">Projektowanie</div>
+                  <div className="card-text">
+                    Jasny cel działania i wizja efektu końcowego są niezwykle
+                    ważne. Przed przystąpieniem do działania tworzę projekt
+                    strony w oparciu o takie narzędzia jak Adobe XD czy
+                    Photoshop
+                  </div>
                 </div>
-                <div className="card-title">Projektowanie</div>
-                <div className="card-text">
-                  Jasny cel działania i wizja efektu końcowego są niezwykle
-                  ważne. Przed przystąpieniem do działania tworzę projekt strony
-                  w oparciu o takie narzędzia jak Adobe XD czy Photoshop
+              </StyledCard>
+            </div>
+          </Fade>
+          <Fade bottom>
+            <div className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fas fa-laptop-code"></i>
+                  </div>
+                  <div className="card-title">Programowanie</div>
+                  <div className="card-text">
+                    Posiadam umiejętności, które pozwalają mi na wdrożenie
+                    projektu od samego zakodowania po hosting i przypisanie
+                    domeny.
+                  </div>
                 </div>
-              </div>
-            </StyledCard>
-          </div>
-          <div className="column is-4-desktop">
-            <StyledCard className="card">
-              <div className="card-content">
-                <div className="card-icon">
-                  <i className="fas fa-laptop-code"></i>
-                </div>
-                <div className="card-title">Programowanie</div>
-                <div className="card-text">
-                  Posiadam umiejętności, które pozwalają mi na wdrożenie
-                  projektu od samego zakodowania po hosting i przypisanie
-                  domeny.
-                </div>
-              </div>
-            </StyledCard>
-          </div>
+              </StyledCard>
+            </div>
+          </Fade>
 
-          <div className="column is-4-desktop">
-            <StyledCard className="card">
-              <div className="card-content">
-                <div className="card-icon">
-                  <i className="fas fa-cogs"></i>
+          <Fade right>
+            <div className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fas fa-cogs"></i>
+                  </div>
+                  <div className="card-title">Wsparcie techniczne</div>
+                  <div className="card-text">
+                    Zajmę się wszelkimi sprawami technicznymi i przeprowadzę
+                    cały projekt od początku do końca. Służę pomocą w razie
+                    wystąpienia jakichkolwiek problemów.
+                  </div>
                 </div>
-                <div className="card-title">Wsparcie techniczne</div>
-                <div className="card-text">
-                  Zajmę się wszelkimi sprawami technicznymi i przeprowadzę cały
-                  projekt od początku do końca. Służę pomocą w razie wystąpienia
-                  jakichkolwiek problemów.
-                </div>
-              </div>
-            </StyledCard>
-          </div>
+              </StyledCard>
+            </div>
+          </Fade>
         </div>
         <div>
           <Link to="/technologie">
