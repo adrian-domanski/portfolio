@@ -60,9 +60,9 @@ const ProjectsGrid = () => {
         filter: {
           id: {
             in: [
-              "07bd2745-a5e2-53fa-9abc-8bd596d220ae"
               "36b931a8-f86c-5a77-bed0-cd175e11b3ae"
               "877b4f89-5a6d-5ca8-8ead-30c825ddea89"
+              "07bd2745-a5e2-53fa-9abc-8bd596d220ae"
             ]
           }
         }
