@@ -163,8 +163,8 @@ const Home = () => {
             </p>
             <p>Zajmuję się tworzeniem stron internetowych</p>
             <p>
-              Front End <span className="has-text-primary">|</span> Back End{" "}
-              <span className="has-text-primary">|</span>
+              Front End<span className="has-text-primary mx-2">|</span>Back End
+              <span className="has-text-primary mx-2">|</span>
               Design
             </p>
             <div>
