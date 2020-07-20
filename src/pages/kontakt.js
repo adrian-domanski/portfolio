@@ -94,7 +94,7 @@ const Contact = () => {
           </div>
           <div className="field mt-4">
             <label className="label link" htmlFor="my-facebook">
-              Napisz do mnie na Facebooku
+              Facebook
             </label>
             <div className="control has-icons-left link">
               <a

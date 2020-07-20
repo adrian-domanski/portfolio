@@ -141,6 +141,8 @@ const Technologies = () => {
             <StyledListItem>Adobe XD</StyledListItem>
             <StyledListItem>RWD</StyledListItem>
             <StyledListItem>Strapi</StyledListItem>
+            <StyledListItem>NPM</StyledListItem>
+            <StyledListItem>BEM</StyledListItem>
           </StyledList>
         </StyledSection>
       </DarkerSection>
