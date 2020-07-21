@@ -7,6 +7,7 @@ const StyledImg = styled.img`
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   transition: transform 0.2s ease-in-out;
 
   :hover {
