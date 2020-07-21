@@ -32,7 +32,8 @@ const GlobalStyles = createGlobalStyle`
 `
 
 const Header = styled.header`
-  height: 600px;
+  min-height: 600px;
+  height: 70vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,7 +44,7 @@ const Header = styled.header`
   :before {
     background-image: url(${headerIMG});
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center;
     background-size: cover;
     content: "";
     height: 100%;
@@ -93,6 +94,7 @@ const Header = styled.header`
       content: "";
       display: block;
       position: absolute;
+      opacity: 0.5;
     }
 
     :before {

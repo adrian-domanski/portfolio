@@ -74,7 +74,7 @@ const ProjectsGrid = () => {
             slug
             short
             images {
-              fluid {
+              fluid(quality: 90) {
                 src
               }
             }

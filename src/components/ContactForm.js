@@ -152,7 +152,7 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <StyledButton center className="button" type="submit">
+      <StyledButton className="button center" type="submit">
         Wyślij
       </StyledButton>
     </StyledForm>

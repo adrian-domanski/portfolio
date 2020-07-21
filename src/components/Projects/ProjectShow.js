@@ -14,6 +14,23 @@ const StyledImg = styled.img`
   }
 `
 
+const FlexCenterLink = styled(Link)`
+  display: flex;
+  align-items: center;
+
+  span,
+  i {
+    transition: color 0.2s ease-in-out;
+  }
+
+  :hover {
+    span,
+    i {
+      color: #bf7b00 !important;
+    }
+  }
+`
+
 const ProjectShow = ({ project }) => {
   return (
     <div key={project.id} className="my-project">
@@ -32,12 +49,13 @@ const ProjectShow = ({ project }) => {
           </SectionSubtitle>
           <p className="my-project__info-short my-3">{project.short}</p>
         </div>
-        <Link
+        <FlexCenterLink
           to={`/projekty${project.slug}`}
           className="my-project__link show-more has-text-primary"
         >
-          Szczegóły projektu...
-        </Link>
+          <i className="fas fa-angle-right"></i>
+          <span className="ml-2">Szczegóły projektu</span>
+        </FlexCenterLink>
       </div>
     </div>
   )

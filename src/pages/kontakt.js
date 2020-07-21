@@ -57,7 +57,7 @@ const StyledContactPage = styled.div`
       box-shadow: none;
     }
 
-    ::placeholder {
+    :placeholder {
       color: ${({ theme }) => theme.colors.darkerWhite};
     }
   }
