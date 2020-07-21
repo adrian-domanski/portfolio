@@ -16,6 +16,10 @@ const StyledNavbar = styled.nav`
       .navbar-burger {
         color: ${({ theme }) => theme.colors.primary};
 
+        &.is-active span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+
         span {
           height: 3px;
           width: 20px;
