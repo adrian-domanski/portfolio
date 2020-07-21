@@ -1,9 +1,18 @@
-import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import withSensor from "../hoc/withSensor"
-import withReveal from "react-reveal/withReveal"
-import Fade from "react-reveal/Fade"
+import { Link } from "gatsby"
+
+export const StyledLink = styled(Link)`
+  display: "table";
+  margin: 0 auto;
+`
+
+export const FadeIn = withSensor(styled.div`
+  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+  transform: translateY(${({ isVisible }) => (isVisible ? "0" : "30px")});
+  transition: opacity 0.5s ease, transform 0.5s ease;
+`)
 
 export const Button = styled.button.attrs({ className: "button" })`
   &&& {
@@ -12,8 +21,8 @@ export const Button = styled.button.attrs({ className: "button" })`
     background-color: transparent;
     padding-left: 2rem;
     padding-right: 2rem;
-    display: block;
     z-index: 1;
+    display: block;
     position: relative;
     transition: color 0.2s ease-in-out;
     overflow: hidden;
@@ -93,16 +102,16 @@ export const SectionTitle = withSensor(styled.h1`
 
   :before {
     bottom: -10px;
-    left: ${({ isVisible }) => (isVisible ? "-12px" : "-200px")};
+    left: ${({ isVisible }) => (isVisible ? "-12px" : "-100px")};
   }
 
   :after {
     bottom: -24px;
-    right: ${({ isVisible }) => (isVisible ? "-12px" : "-200px")};
+    right: ${({ isVisible }) => (isVisible ? "-12px" : "-100px")};
   }
 `)
 
-export const StyledSection = styled.div.attrs({ className: "section" })`
+export const StyledSection = styled.section.attrs({ className: "section" })`
   max-width: ${({ theme }) => theme.pageMaxWidth};
   margin: 0 auto;
 `
@@ -125,16 +134,16 @@ export const StyledGatsbyImg = styled(Img)`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `
 
-export const Paragraph = withReveal(
-  styled.p`
-    line-height: 1.75;
+export const Paragraph = withSensor(styled.p`
+  line-height: 1.75;
+  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+  transform: translateY(${({ isVisible }) => (isVisible ? "0" : "30px")});
+  transition: opacity 0.5s ease, transform 0.5s ease;
 
-    @media screen and (min-width: 600px) {
-      font-size: 1.4rem;
-    }
-  `,
-  <Fade bottom />
-)
+  @media screen and (min-width: 600px) {
+    font-size: 1.4rem;
+  }
+`)
 
 export const StyledList = styled.ul`
   display: grid;
@@ -187,7 +196,8 @@ export const SectionSubtitle = withSensor(styled.h1`
 export const Blockquote = styled.blockquote`
   && {
     &.is-primary {
-      background-color: ${({ theme }) => theme.colors.darkerGrey};
+      background-color: ${({ theme, light }) =>
+        light ? theme.colors.darkGrey : theme.colors.darkerGrey};
       border-color: ${({ theme }) => theme.colors.primary};
     }
     &.is-danger {

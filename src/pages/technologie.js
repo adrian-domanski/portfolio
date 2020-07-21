@@ -56,9 +56,9 @@ const Technologies = () => {
           tworzeniu projektów.
         </Paragraph>
         <div className="content mt-6">
-          <Blockquote className="is-danger has-text-danger">
-            Uwaga, poniżej znajduje się wiele trudnych wyrazów i sformułowań -
-            czytasz na własne ryzyko!
+          <Blockquote className="is-primary has-text-primary">
+            Jeżeli nie interesujesz się tworzeniem stron internetowych, możesz
+            pominąć tą sekcję
           </Blockquote>
         </div>
         <TechnologiesGroup>

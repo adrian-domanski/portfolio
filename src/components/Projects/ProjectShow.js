@@ -5,13 +5,12 @@ import { SectionSubtitle } from "../../utils/styled/components"
 
 const StyledImg = styled.img`
   display: block;
-  object-fit: cover;
   width: 100%;
   height: 100%;
   transition: transform 0.2s ease-in-out;
 
   :hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 `
 

@@ -14,17 +14,20 @@ import {
   StyledListItem,
   StyledGatsbyImg,
   Blockquote,
+  FadeIn,
+  StyledLink,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
-import Fade from "react-reveal/Fade"
 import ProjectsGrid from "../components/Projects/ProjectsGrid"
+import withSensor from "../utils/hoc/withSensor"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
   height: 600px;
+  height: 70vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -34,10 +37,10 @@ const Header = styled.header`
 
   .header-content {
     letter-spacing: 1px;
-    text-shadow: 1px 2px 3px black;
     z-index: 2;
     position: relative;
     color: #fff;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.75;
@@ -50,6 +53,10 @@ const Header = styled.header`
 
     @media screen and (min-width: 600px) {
       font-size: 2rem;
+    }
+
+    ${({ theme }) => theme.media.desktop} {
+      font-size: 2.1rem;
     }
   }
   .background-filter {
@@ -100,8 +107,12 @@ const StyledButton = styled(Button)`
   letter-spacing: 1px;
   margin: 0 auto;
 
-  &.pointer-active {
+  &.cta.pointer-active {
     pointer-events: all;
+
+    ${({ theme }) => theme.media.desktop} {
+      font-size: 1.5rem;
+    }
   }
 `
 
@@ -130,6 +141,20 @@ const StyledCard = styled.div`
   }
 `
 
+const StyledColumn = withSensor(styled.div`
+  :nth-child(1) {
+    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "-30px")});
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  :nth-child(3) {
+    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "30px")});
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+`)
+
 const Home = () => {
   const query = useStaticQuery(graphql`
     query {
@@ -153,57 +178,93 @@ const Home = () => {
             params={particlesConfig}
           />
         </div>
-        <Fade bottom cascade>
-          <div className="header-content">
-            <p>
-              Witaj, jestem{" "}
-              <span className="has-text-primary has-text-weight-bold">
-                Adrian
-              </span>
-            </p>
-            <p>Zajmuję się tworzeniem stron internetowych</p>
-            <p>
-              Front End<span className="has-text-primary mx-2">|</span>Back End
-              <span className="has-text-primary mx-2">|</span>
-              Design
-            </p>
-            <div>
-              <Link to="/kontakt">
-                <StyledButton className="button mt-5 pointer-active">
-                  Kontakt
-                </StyledButton>
-              </Link>
-            </div>
-          </div>
-        </Fade>
+        <FadeIn className="header-content">
+          <h1>
+            Witaj, jestem{" "}
+            <span className="has-text-primary has-text-weight-bold">
+              Adrian
+            </span>
+          </h1>
+          <h1>Zajmuję się tworzeniem stron internetowych</h1>
+          <h1>
+            Front End<span className="has-text-primary mx-2">|</span>Back End
+            <span className="has-text-primary mx-2">|</span>
+            Design
+          </h1>
+          <StyledLink to="/projekty">
+            <StyledButton className="button mt-5 pointer-active cta">
+              Moje prace
+            </StyledButton>
+          </StyledLink>
+        </FadeIn>
       </Header>
-      <StyledSection>
-        <SectionTitle>Kilka słów o mnie</SectionTitle>
-        <StyledGatsbyImg
-          fluid={query.placeholderImage.childImageSharp.fluid}
-          alt="Tworzenie storny internetowej, laptop, notatnik i kubek"
-        />
-        <Paragraph className="has-text-centered mt-6">
-          Nazywam się <span className="has-text-primary">Adrian Domański</span>{" "}
-          i mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem. Tworzeniem
-          stron internetowych zajmuję się od 2 lat. Jako osoba wytrwała i
-          sumienna w dążeniu do wyznaczonych celów rozwijam swoją{" "}
-          <span className="has-text-primary">pasję</span> codzienną,
-          systematyczną pracą.
-        </Paragraph>
-        <Paragraph className="has-text-centered mt-5">
-          Interesują mnie nowe technologie i rozwiązania w świecie web
-          developmentu i branży IT. Bez większych trudności{" "}
-          <span className="has-text-primary">potrafię stworzyć</span> portfolio,
-          stronę firmową przedstawiającą daną działalność, czy jakąkolwiek inną
-          witrynę na wybrany temat. Z wielką chęcią pomogę Ci w realizacji
-          twojego wymarzonego projektu i zadbam o wszelkie sprawy techniczne.
+      <StyledSection className="pb-0 mt-5">
+        <SectionTitle>Co oferuję?</SectionTitle>
+
+        <Paragraph className="has-text-centered">
+          Zaprojektuję oraz stworzę dla Ciebie stronę internetową. Zadbam o
+          wszelkie sprawy techniczne, takie jak zamieszczenie witryny w sieci
+          oraz nadanie jej odpowiedniej nazwy. Oferuję kompleksowy zakres usług,
+          abyś nie musiał się niczym przejmować.
         </Paragraph>
       </StyledSection>
+      <BiggerStyledSection>
+        <div className="columns">
+          <StyledColumn className="column is-4-desktop">
+            <StyledCard className="card">
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-pencil-ruler"></i>
+                </div>
+                <div className="card-title">Projektowanie</div>
+                <div className="card-text">
+                  Jasny cel działania i wizja efektu końcowego są niezwykle
+                  ważne. Przed przystąpieniem do pisania strony zbieram
+                  informacje i tworzę projekt graficzny.
+                </div>
+              </div>
+            </StyledCard>
+          </StyledColumn>
+          <FadeIn className="column is-4-desktop">
+            <StyledCard className="card">
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-laptop-code"></i>
+                </div>
+                <div className="card-title">Programowanie</div>
+                <div className="card-text">
+                  Posiadam umiejętności, które pozwalają mi na wdrożenie
+                  projektu od samego zakodowania po hosting i przypisanie
+                  domeny.
+                </div>
+              </div>
+            </StyledCard>
+          </FadeIn>
 
-      <DarkerSection right>
+          <StyledColumn className="column is-4-desktop">
+            <StyledCard className="card">
+              <div className="card-content">
+                <div className="card-icon">
+                  <i className="fas fa-cogs"></i>
+                </div>
+                <div className="card-title">Wsparcie techniczne</div>
+                <div className="card-text">
+                  Zajmę się wszelkimi sprawami technicznymi i przeprowadzę cały
+                  projekt od początku do końca. Służę pomocą w razie wystąpienia
+                  jakichkolwiek problemów.
+                </div>
+              </div>
+            </StyledCard>
+          </StyledColumn>
+        </div>
+        <StyledLink to="/technologie" className="mb-5">
+          <StyledButton className="button">Umiejętności</StyledButton>
+        </StyledLink>
+      </BiggerStyledSection>
+      <DarkerSection>
         <StyledSection>
           <SectionTitle>Jakie strony tworzę?</SectionTitle>
+
           <Paragraph className="has-text-centered mb-6">
             Tworzę zarówno strony{" "}
             <span className="has-text-primary">statyczne</span>, w których
@@ -227,109 +288,47 @@ const Home = () => {
       </DarkerSection>
 
       <StyledSection>
-        <SectionTitle>Co oferuję?</SectionTitle>
+        <SectionTitle>Moje projekty</SectionTitle>
 
-        <Paragraph className="has-text-centered">
-          Potrafię przygotować{" "}
-          <span className="has-text-primary">projekt graficzny</span>, który po
-          omówieniu z klientem wdrażam za pomocą odpowiednich rozwiązań. Dbam o
-          pozycjonowanie strony, kierując się zbiorem obowiązujących zasad i
-          standardów.
-        </Paragraph>
-        <br />
-        <div className="content">
-          <Blockquote className="is-primary has-text-centered">
-            Moje strony są niezwykle{" "}
-            <span className="has-text-primary">szybkie</span> i{" "}
-            <span className="has-text-primary">wydajne</span> - zobacz sam, jak
-            błyskawicznie możesz przemieszczać się między podstronami używając
-            górnej nawigacji.
-          </Blockquote>
+        <ProjectsGrid />
+        <div>
+          <StyledLink to="/projekty">
+            <StyledButton className="mt-6">Zobacz więcej</StyledButton>
+          </StyledLink>
         </div>
       </StyledSection>
-      <BiggerStyledSection>
-        <div className="columns">
-          <Fade left>
-            <div className="column is-4-desktop">
-              <StyledCard className="card">
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-pencil-ruler"></i>
-                  </div>
-                  <div className="card-title">Projektowanie</div>
-                  <div className="card-text">
-                    Jasny cel działania i wizja efektu końcowego są niezwykle
-                    ważne. Przed przystąpieniem do działania tworzę projekt
-                    strony w oparciu o takie narzędzia jak Adobe XD czy
-                    Photoshop
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-          </Fade>
-          <Fade bottom>
-            <div className="column is-4-desktop">
-              <StyledCard className="card">
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-laptop-code"></i>
-                  </div>
-                  <div className="card-title">Programowanie</div>
-                  <div className="card-text">
-                    Posiadam umiejętności, które pozwalają mi na wdrożenie
-                    projektu od samego zakodowania po hosting i przypisanie
-                    domeny.
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-          </Fade>
 
-          <Fade right>
-            <div className="column is-4-desktop">
-              <StyledCard className="card">
-                <div className="card-content">
-                  <div className="card-icon">
-                    <i className="fas fa-cogs"></i>
-                  </div>
-                  <div className="card-title">Wsparcie techniczne</div>
-                  <div className="card-text">
-                    Zajmę się wszelkimi sprawami technicznymi i przeprowadzę
-                    cały projekt od początku do końca. Służę pomocą w razie
-                    wystąpienia jakichkolwiek problemów.
-                  </div>
-                </div>
-              </StyledCard>
-            </div>
-          </Fade>
-        </div>
-        <div>
-          <Link to="/technologie">
-            <StyledButton className="button">Zobacz więcej</StyledButton>
-          </Link>
-        </div>
-      </BiggerStyledSection>
-      <DarkerSection>
+      <DarkerSection right>
         <StyledSection>
-          <SectionTitle>Moje projekty</SectionTitle>
-
-          <ProjectsGrid />
-          <div>
-            <Link to="/projekty">
-              <StyledButton className="mt-6">Zobacz więcej</StyledButton>
-            </Link>
-          </div>
+          <SectionTitle>Kilka słów o mnie</SectionTitle>
+          <StyledGatsbyImg
+            fluid={query.placeholderImage.childImageSharp.fluid}
+            alt="Tworzenie storny internetowej, laptop, notatnik i kubek"
+          />
+          <Paragraph className="has-text-centered mt-6">
+            Nazywam się{" "}
+            <span className="has-text-primary">Adrian Domański</span> i mieszkam
+            w Mosinie - niewielkim miasteczku pod Poznaniem. Interesują mnie
+            nowe technologie i rozwiązania w świecie web developmentu i branży
+            IT. Tworzeniem stron internetowych zajmuję się od 2 lat. Jako osoba
+            wytrwała i sumienna w dążeniu do wyznaczonych celów rozwijam swoją{" "}
+            <span className="has-text-primary">pasję</span> codzienną,
+            systematyczną pracą.
+          </Paragraph>
         </StyledSection>
       </DarkerSection>
-
       <StyledSection>
         <SectionTitle>Kontakt</SectionTitle>
         <Paragraph className="has-text-centered mb-6">
           Masz pomysł na nowy projekt? Interesuje Cię współpraca? Informacje
-          kontaktowe znajdziesz{" "}
-          <Link to="/kontakt" className="has-text-primary has-text-weight-bold">
+          kontaktowe znajdziesz
+          <StyledLink
+            to="/kontakt"
+            className="has-text-primary has-text-weight-bold"
+          >
+            {" "}
             klikając tutaj
-          </Link>
+          </StyledLink>
           . Możesz również napisać do mnie za pomocą poniższego formularza.
         </Paragraph>
         <ContactForm />

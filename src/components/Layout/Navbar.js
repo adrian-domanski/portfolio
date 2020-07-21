@@ -18,6 +18,16 @@ const StyledNavbar = styled.nav`
 
         span {
           height: 3px;
+          width: 20px;
+          left: calc(50% - 9px);
+
+          :nth-child(1) {
+            top: calc(50% - 7px);
+          }
+
+          :nth-child(3) {
+            top: calc(50% + 5px);
+          }
         }
       }
       .navbar-menu {

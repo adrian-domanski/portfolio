@@ -37,7 +37,7 @@ const MyProjectsGrid = styled.div`
 
   .my-project__info {
     padding: 2rem;
-    background-color: ${({ theme }) => theme.colors.darkGrey};
+    background-color: ${({ theme }) => theme.colors.darkerGrey};
     display: flex;
     flex-direction: column;
     justify-content: space-between;

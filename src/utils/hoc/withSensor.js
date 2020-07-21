@@ -6,6 +6,7 @@ const withSensor = Component => {
     const [isVisible, setIsVisible] = useState(false)
     return (
       <VisibilitySensor
+        partialVisibility
         onChange={visible => visible && !isVisible && setIsVisible(true)}
       >
         <Component {...props} isVisible={isVisible} />

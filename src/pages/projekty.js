@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Layout from "../components/Layout/Layout"
 import {
   SectionTitle,
@@ -12,20 +12,6 @@ import SEO from "../components/seo"
 
 const Projects = ({ data }) => {
   const projects = data.allContentfulProjects.edges
-
-  const projectsList = useState(() =>
-    projects ? (
-      projects.map(project => (
-        <ProjectTile
-          key={project.node.id}
-          className="column is-4"
-          project={project.node}
-        />
-      ))
-    ) : (
-      <SectionTitle>Wczytywanie...</SectionTitle>
-    )
-  )
 
   return (
     <Layout darkFooter>
@@ -42,7 +28,15 @@ const Projects = ({ data }) => {
             zamieszczam poniżej kilka własnych projektów:
           </Blockquote>
         </div>
-        <div className="columns is-multiline">{projectsList}</div>
+        <div className="columns is-multiline">
+          {projects.map(project => (
+            <ProjectTile
+              key={project.node.id}
+              className="column is-4"
+              project={project.node}
+            />
+          ))}
+        </div>
       </BiggerStyledSection>
     </Layout>
   )
