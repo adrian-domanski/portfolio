@@ -49,11 +49,15 @@ const Header = styled.header`
     content: "";
     height: 100%;
     left: 0;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     will-change: transform;
     z-index: -1;
+
+    ${({ theme }) => theme.media.desktop} {
+      position: fixed;
+    }
   }
 
   .header-content {
