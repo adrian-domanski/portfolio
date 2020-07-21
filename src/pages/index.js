@@ -13,16 +13,16 @@ import {
   StyledList,
   StyledListItem,
   StyledGatsbyImg,
-  Blockquote,
+  StyledColumn,
   FadeIn,
   StyledLink,
+  StyledCard,
 } from "../utils/styled/components"
 import headerIMG from "../images/header-parallax.jpg"
 import ContactForm from "../components/ContactForm"
 import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import ProjectsGrid from "../components/Projects/ProjectsGrid"
-import withSensor from "../utils/hoc/withSensor"
 
 const Header = styled.header`
   background-image: url(${headerIMG});
@@ -115,45 +115,6 @@ const StyledButton = styled(Button)`
     }
   }
 `
-
-const StyledCard = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkerGrey};
-  color: ${({ theme }) => theme.colors.darkerWhite};
-  height: 100%;
-  padding: 1rem 0;
-  text-align: center;
-  text-shadow: ${({ theme }) => theme.textShadow};
-
-  .card-icon {
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: 4rem;
-  }
-
-  .card-title {
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.lightWhite};
-  }
-
-  .card-text {
-    font-size: 1.1rem;
-    color: ${({ theme }) => theme.colors.darkerWhite};
-  }
-`
-
-const StyledColumn = withSensor(styled.div`
-  :nth-child(1) {
-    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "-30px")});
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  :nth-child(3) {
-    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
-    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "30px")});
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-`)
 
 const Home = () => {
   const query = useStaticQuery(graphql`

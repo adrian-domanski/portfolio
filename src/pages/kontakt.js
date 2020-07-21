@@ -1,10 +1,13 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 import Layout from "../components/Layout/Layout"
 import {
   StyledSection,
   SectionTitle,
   Paragraph,
   DarkerSection,
+  StyledColumn,
+  StyledCard,
+  StyledExternalLink,
 } from "../utils/styled/components"
 import styled from "styled-components"
 import ContactForm from "../components/ContactForm"
@@ -60,6 +63,18 @@ const StyledContactPage = styled.div`
 `
 
 const Contact = () => {
+  const emailRef = useRef(null)
+  const [alert, setAlert] = useState("")
+
+  const handleCopy = e => {
+    e.preventDefault()
+    navigator.clipboard.writeText("adrian.domanski.dev@gmail.com")
+    setAlert("Skopiowano!")
+
+    setTimeout(() => {
+      setAlert("")
+    }, 3000)
+  }
   return (
     <Layout>
       <SEO title="Strony internetowe - Adrian Domański - Kontakt" />
@@ -74,71 +89,70 @@ const Contact = () => {
             na poniższy adres e-mail, napisz na facebooku lub skorzystaj z
             formularza kontaktowego.
           </Paragraph>
-          <div className="field mt-5">
-            <label className="label" htmlFor="my-email">
-              E-mail
-            </label>
-            <div className="control has-icons-left">
-              <input
-                id="my-email"
-                className="input"
-                type="text"
-                placeholder="Tytuł wiadomości"
-                value="adrian.domanski.dev@gmail.com"
-                readOnly
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-at"></i>
-              </span>
-            </div>
-          </div>
-          <div className="field mt-4">
-            <label className="label link" htmlFor="my-facebook">
-              Facebook
-            </label>
-            <div className="control has-icons-left link">
-              <a
-                href="https://www.facebook.com/Tworzenie-stron-internetowych-Adrian-Doma%C5%84ski-112167500574067/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <input
-                  id="my-facebook"
-                  className="input"
-                  type="text"
-                  placeholder="Tytuł wiadomości"
-                  value="facebook.com"
-                  readOnly
-                />
-              </a>
-              <span className="icon is-small is-left">
-                <i className="fab fa-facebook"></i>
-              </span>
-            </div>
-          </div>
-          <div className="field mt-4">
-            <label className="label link" htmlFor="my-github">
-              GitHub
-            </label>
-            <div className="control has-icons-left link">
-              <a
-                href="https://github.com/adrian-domanski"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <input
-                  id="my-github"
-                  className="input"
-                  type="text"
-                  placeholder="Tytuł wiadomości"
-                  value="github.com/adrian-domanski"
-                  readOnly
-                />
-              </a>
-              <span className="icon is-small is-left">
-                <i className="fab fa-github"></i>
-              </span>
-            </div>
+          <div className="columns mt-6">
+            <StyledColumn className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fas fa-at"></i>
+                  </div>
+                  <div className="card-title">Email</div>
+                  <div className="card-text">
+                    <StyledExternalLink
+                      href="#"
+                      onClick={handleCopy}
+                      ref={emailRef}
+                    >
+                      adrian.domanski.dev@gmail.com
+                    </StyledExternalLink>
+                    {alert && (
+                      <span className="has-text-weight-bold is-fullwidth is-block mt-3">
+                        {alert}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </StyledCard>
+            </StyledColumn>
+            <StyledColumn className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fab fa-facebook"></i>
+                  </div>
+                  <div className="card-title">Facebook</div>
+
+                  <div className="card-text">
+                    <StyledExternalLink
+                      href="https://www.facebook.com/Tworzenie-stron-internetowych-Adrian-Doma%C5%84ski-112167500574067/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      facebook.com
+                    </StyledExternalLink>
+                  </div>
+                </div>
+              </StyledCard>
+            </StyledColumn>
+            <StyledColumn className="column is-4-desktop">
+              <StyledCard className="card">
+                <div className="card-content">
+                  <div className="card-icon">
+                    <i className="fab fa-github"></i>
+                  </div>
+                  <div className="card-title">GitHub</div>
+                  <div className="card-text">
+                    <StyledExternalLink
+                      href="https://github.com/adrian-domanski"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      github.com/adrian-domanski
+                    </StyledExternalLink>
+                  </div>
+                </div>
+              </StyledCard>
+            </StyledColumn>
           </div>
         </StyledSection>
         <DarkerSection right>

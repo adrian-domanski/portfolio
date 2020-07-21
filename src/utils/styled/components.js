@@ -6,6 +6,57 @@ import { Link } from "gatsby"
 export const StyledLink = styled(Link)`
   display: "table";
   margin: 0 auto;
+  color: ${({ theme }) => theme.colors.primary};
+  text-decoration: underline;
+`
+
+export const StyledExternalLink = styled.a`
+  color: ${({ theme }) => theme.colors.primary};
+  text-decoration: underline;
+  transition: color 0.1s ease-in-out;
+
+  :hover {
+    color: #bf7b00;
+  }
+`
+
+export const StyledColumn = withSensor(styled.div`
+  :nth-child(1) {
+    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "-30px")});
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  :nth-child(3) {
+    opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
+    transform: translateX(${({ isVisible }) => (isVisible ? "0" : "30px")});
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+`)
+
+export const StyledCard = styled.div`
+  background-color: ${({ theme }) => theme.colors.darkerGrey};
+  color: ${({ theme }) => theme.colors.darkerWhite};
+  height: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  text-shadow: ${({ theme }) => theme.textShadow};
+
+  .card-icon {
+    color: ${({ theme }) => theme.colors.primary};
+    font-size: 4rem;
+  }
+
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: ${({ theme }) => theme.colors.lightWhite};
+  }
+
+  .card-text {
+    font-size: 1.1rem;
+    color: ${({ theme }) => theme.colors.darkerWhite};
+  }
 `
 
 export const FadeIn = withSensor(styled.div`
