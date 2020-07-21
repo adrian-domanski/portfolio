@@ -3,11 +3,8 @@ import Img from "gatsby-image"
 import withSensor from "../hoc/withSensor"
 import { Link } from "gatsby"
 
-export const StyledLink = styled(Link)`
-  display: "table";
-  margin: 0 auto;
-  color: ${({ theme }) => theme.colors.primary};
-  text-decoration: underline;
+export const StyledMain = styled.div`
+  background-color: ${({ theme }) => theme.colors.darkGrey};
 `
 
 export const StyledExternalLink = styled.a`
@@ -65,7 +62,7 @@ export const FadeIn = withSensor(styled.div`
   transition: opacity 0.5s ease, transform 0.5s ease;
 `)
 
-export const Button = styled.button.attrs({ className: "button" })`
+export const Button = styled(Link).attrs({ className: "button" })`
   &&& {
     border: 1px solid ${({ theme }) => theme.colors.primary};
     color: ${({ theme }) => theme.colors.primary};
@@ -73,10 +70,20 @@ export const Button = styled.button.attrs({ className: "button" })`
     padding-left: 2rem;
     padding-right: 2rem;
     z-index: 1;
-    display: block;
+    display: table;
     position: relative;
     transition: color 0.2s ease-in-out;
     overflow: hidden;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+
+    &.cta.pointer-active {
+      pointer-events: all;
+
+      ${({ theme }) => theme.media.desktop} {
+        font-size: 1.5rem;
+      }
+    }
 
     :focus,
     :active {
@@ -123,12 +130,13 @@ export const Button = styled.button.attrs({ className: "button" })`
         transform: scale(1);
       }
     }
-
-    ${props => props.center && "margin: 0 auto"};
+    &.center {
+      margin: 0 auto;
+    }
   }
 `
 
-export const SectionTitle = withSensor(styled.h1`
+export const SectionTitle = withSensor(styled.h2`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;

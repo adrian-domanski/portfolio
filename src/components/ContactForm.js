@@ -2,6 +2,12 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Button } from "../utils/styled/components"
 
+const StyledButton = styled(Button).attrs({ as: "button" })`
+  &&& {
+    font-size: 1.2rem;
+  }
+`
+
 const StyledForm = styled.form`
   &&& {
     .control.has-icons-left .input:focus ~ .icon,
@@ -92,7 +98,7 @@ const ContactForm = () => {
 
       <div className="field">
         <label className="label" htmlFor="title">
-          Tytuł wiadomości
+          Tytuł
         </label>
         <div className="control has-icons-left">
           <input
@@ -146,9 +152,9 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <Button center className="button is-medium" type="submit">
+      <StyledButton center className="button" type="submit">
         Wyślij
-      </Button>
+      </StyledButton>
     </StyledForm>
   )
 }

@@ -24,6 +24,10 @@ body::-webkit-scrollbar-thumb {
   background-color: #555;
 }
 
+.has-text-underline {
+  text-decoration: underline;
+}
+
 // Mobile nav animation
 @include until($desktop) {
   .navbar-menu {

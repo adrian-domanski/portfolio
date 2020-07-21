@@ -8,6 +8,7 @@ import {
   StyledColumn,
   StyledCard,
   StyledExternalLink,
+  FadeIn,
 } from "../utils/styled/components"
 import styled from "styled-components"
 import ContactForm from "../components/ContactForm"
@@ -75,6 +76,7 @@ const Contact = () => {
       setAlert("")
     }, 3000)
   }
+
   return (
     <Layout>
       <SEO title="Strony internetowe - Adrian Domański - Kontakt" />
@@ -114,7 +116,7 @@ const Contact = () => {
                 </div>
               </StyledCard>
             </StyledColumn>
-            <StyledColumn className="column is-4-desktop">
+            <FadeIn className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
                   <div className="card-icon">
@@ -133,7 +135,7 @@ const Contact = () => {
                   </div>
                 </div>
               </StyledCard>
-            </StyledColumn>
+            </FadeIn>
             <StyledColumn className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">

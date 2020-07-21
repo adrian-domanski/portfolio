@@ -46,6 +46,7 @@ const ProjectDetails = ({ data }) => {
             <a
               href={projectData.live}
               target="_blank"
+              rel="noreferrer"
               className="has-text-primary"
             >
               {projectData.live}
@@ -58,6 +59,7 @@ const ProjectDetails = ({ data }) => {
             <a
               href={projectData.code}
               target="_blank"
+              rel="noreferrer"
               className="has-text-primary"
             >
               {projectData.code}

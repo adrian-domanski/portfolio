@@ -34,9 +34,9 @@ const ProjectShow = ({ project }) => {
         </div>
         <Link
           to={`/projekty${project.slug}`}
-          className="my-project__link show-more"
+          className="my-project__link show-more has-text-primary"
         >
-          <p className="has-text-primary">Szczegóły projektu...</p>
+          Szczegóły projektu...
         </Link>
       </div>
     </div>

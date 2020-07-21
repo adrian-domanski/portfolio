@@ -150,6 +150,8 @@ const Navbar = () => {
         </LogoLink>
 
         <a
+          href="/"
+          onClick={e => e.preventDefault()}
           role="button"
           className="navbar-burger burger"
           aria-label="menu"
