@@ -40,8 +40,12 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `/ogImage.jpg`,
+          content: `https://adrian-domanski.pl/ogImage.jpg`,
         },
+        {
+          property: `og:image:secure_url`,
+          content: `https://adrian-domanski.pl/ogImage.jpg`,
+        }
         { property: `og:url`, content: "https://adrian-domanski.pl" },
         {
           property: `og:type`,
