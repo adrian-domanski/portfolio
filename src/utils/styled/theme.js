@@ -8,8 +8,7 @@ export const theme = {
   },
   pageMaxWidth: "1000px",
   pageWideSectionMaxWidth: "1400px",
-  textShadow: "1px 2px 5px rgba(0,0,0,.3)",
-  boxShadow: "2px 2px 10px rgba(0,0,0,0.2)",
+  boxShadow: "5px 5px 20px 0px rgba(0, 0, 0, 0.1)",
   media: {
     desktop: "@media screen and (min-width: 1024px)",
     mobile: "@media screen and (max-width: 1023px)",

@@ -38,7 +38,7 @@ export const StyledCard = styled.div`
   height: 100%;
   padding: 1rem 0;
   text-align: center;
-  text-shadow: ${({ theme }) => theme.textShadow};
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.1);
 
   .card-icon {
     color: ${({ theme }) => theme.colors.primary};
@@ -80,17 +80,6 @@ export const Button = styled(Link).attrs({ className: "button" })`
 
     &.cta.pointer-active {
       pointer-events: all;
-
-      :before,
-      :after {
-        display: none;
-      }
-
-      :hover {
-        background: ${({ theme }) => theme.colors.primary};
-        color: black;
-      }
-
       ${({ theme }) => theme.media.desktop} {
         font-size: 1.5rem;
       }
@@ -102,43 +91,9 @@ export const Button = styled(Link).attrs({ className: "button" })`
       box-shadow: none;
     }
 
-    :before,
-    :after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background: #ffa92d;
-      transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
-      opacity: 0.1;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-    :after {
-      bottom: 0;
-      left: 0;
-      transform-origin: bottom left;
-      transform: scale(0) translateX(-50%);
-      clip-path: polygon(0 0, 0 100%, 100% 100%);
-    }
-
-    :before {
-      top: 0;
-      right: 0;
-      transform-origin: top right;
-      transform: scale(0) translateX(50%);
-      clip-path: polygon(0 0, 100% 0, 100% 100%);
-    }
-
     :hover {
-      border-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.colors.primary};
-
-      :after,
-      :before {
-        transform: scale(1);
-      }
+      background: ${({ theme }) => theme.colors.primary};
+      color: black;
     }
     &.center {
       margin: 0 auto;

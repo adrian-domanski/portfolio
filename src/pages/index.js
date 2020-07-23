@@ -39,7 +39,7 @@ const Header = styled.header`
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 0 20px 2px rgba(0, 0, 0, 0.1);
 
   :before {
     background-image: url(${headerIMG});
@@ -69,7 +69,6 @@ const Header = styled.header`
     letter-spacing: 1px;
     z-index: 2;
     position: relative;
-
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.75;
@@ -94,8 +93,7 @@ const Header = styled.header`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 
     :before,
     :after {

@@ -8,8 +8,9 @@ const StyledNavbar = styled.nav`
   &&& {
     padding: 0 0.75rem;
     background-color: ${({ theme }) => theme.colors.darkerGrey};
-    box-shadow: 0 2px 3px #00000050;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     position: sticky;
+
     top: 0;
     left: 0;
     @media screen and (max-width: 1023px) {
@@ -44,7 +45,6 @@ const StyledNavbar = styled.nav`
         padding: 0;
         .navbar-item {
           color: ${({ theme }) => theme.colors.primary};
-          text-shadow: ${({ theme }) => theme.textShadow};
           font-size: 1.2rem;
           padding: 1.2rem 1rem;
           :hover {
@@ -62,17 +62,16 @@ const NavbarLink = styled(Link).attrs({ className: "navbar-item" })`
     font-size: 1rem;
     padding: 1.2rem 1rem;
     color: ${({ theme }) => theme.colors.primary};
-    text-shadow: ${({ theme }) => theme.textShadow};
     position: relative;
 
     :after {
       content: "";
       display: block;
       width: 80%;
-      height: 3px;
+      height: 2px;
       background-color: ${({ theme }) => theme.colors.primary};
       position: absolute;
-      bottom: 12px;
+      bottom: 15px;
       left: 10%;
       transform: scaleX(0);
       transition: transform 0.1s ease-out;
@@ -118,6 +117,16 @@ const LogoLink = styled(Link)`
   display: flex;
 `
 
+const NavbarWrapper = styled.div`
+  ${({ theme }) => theme.media.desktop} {
+    max-width: ${({ theme }) => theme.pageWideSectionMaxWidth};
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+`
+
 const Navbar = () => {
   const { pathname } = useLocation()
 
@@ -145,65 +154,68 @@ const Navbar = () => {
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">
-        <LogoLink to="/">
-          <StyledLogo
-            src={LogoIMG}
-            alt="Logo, tworzenie stron internetowych Adrian Domański"
-          />
-        </LogoLink>
+      <NavbarWrapper>
+        <div className="navbar-brand">
+          <LogoLink to="/">
+            <StyledLogo
+              src={LogoIMG}
+              alt="Logo, tworzenie stron internetowych Adrian Domański"
+            />
+          </LogoLink>
 
-        <a
-          href="/"
-          onClick={e => e.preventDefault()}
-          role="button"
-          className="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-end">
-          <NavbarLink to="/" className={`${pathname === "/" && "active"}`}>
-            Strona Główna
-          </NavbarLink>
-
-          <NavbarLink
-            to="/projekty"
-            className={`${
-              (pathname === "/projekty" || pathname === "/projekty/") &&
-              "active"
-            }`}
+          <a
+            href="/"
+            onClick={e => e.preventDefault()}
+            role="button"
+            className="navbar-burger burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
           >
-            Projekty
-          </NavbarLink>
-
-          <NavbarLink
-            to="/technologie"
-            className={`${
-              (pathname === "/technologie" || pathname === "/technologie/") &&
-              "active"
-            }`}
-          >
-            Technologie
-          </NavbarLink>
-
-          <NavbarLink
-            to="/kontakt"
-            className={`${
-              (pathname === "/kontakt" || pathname === "/kontakt/") && "active"
-            }`}
-          >
-            Kontakt
-          </NavbarLink>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
-      </div>
+
+        <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-end">
+            <NavbarLink to="/" className={`${pathname === "/" && "active"}`}>
+              Strona Główna
+            </NavbarLink>
+
+            <NavbarLink
+              to="/projekty"
+              className={`${
+                (pathname === "/projekty" || pathname === "/projekty/") &&
+                "active"
+              }`}
+            >
+              Projekty
+            </NavbarLink>
+
+            <NavbarLink
+              to="/technologie"
+              className={`${
+                (pathname === "/technologie" || pathname === "/technologie/") &&
+                "active"
+              }`}
+            >
+              Technologie
+            </NavbarLink>
+
+            <NavbarLink
+              to="/kontakt"
+              className={`${
+                (pathname === "/kontakt" || pathname === "/kontakt/") &&
+                "active"
+              }`}
+            >
+              Kontakt
+            </NavbarLink>
+          </div>
+        </div>
+      </NavbarWrapper>
     </StyledNavbar>
   )
 }
