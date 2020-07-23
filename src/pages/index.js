@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Header = styled.header`
   min-height: 600px;
-  height: 70vh;
+  height: 75vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -61,11 +61,15 @@ const Header = styled.header`
   }
 
   .header-content {
+    h1,
+    h2 {
+      color: #fff;
+    }
+
     letter-spacing: 1px;
     z-index: 2;
     position: relative;
-    color: #fff;
-    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+
     text-align: center;
     font-size: 1.5rem;
     line-height: 1.75;
@@ -90,7 +94,7 @@ const Header = styled.header`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     box-shadow: inset 0 0 100px 5px rgba(0, 0, 0, 0.5);
 
     :before,
@@ -121,12 +125,41 @@ const Header = styled.header`
   }
 `
 
+const AboutMeSection = styled(StyledSection)`
+  p {
+    text-align: center;
+  }
+`
+
+const StyledAvatar = styled(StyledGatsbyImg)`
+  max-width: 300px;
+  margin: 0 auto;
+  position: realtive;
+  display: block;
+
+  ${({ theme }) => theme.media.desktop} {
+    overflow: visible !important;
+    :after {
+      transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      width: calc(100%);
+      height: calc(100%);
+      display: block;
+      border: 5px solid ${({ theme }) => theme.colors.primary};
+    }
+  }
+`
+
 const Home = () => {
   const query = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "computer-on-desk.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
-          fluid {
+          fluid(quality: 90) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -146,14 +179,16 @@ const Home = () => {
           />
         </div>
         <FadeIn className="header-content">
-          <h2>
+          <h2 className="is-size-1-desktop is-size-2-tablet is-size-3-mobile">
             Witaj, jestem{" "}
             <span className="has-text-primary has-text-weight-bold">
               Adrian
             </span>
           </h2>
-          <h1>Zajmuję się tworzeniem stron internetowych</h1>
-          <h2>
+          <h1 className="is-size-2-desktop is-size-3-tablet is-size-4-mobile">
+            Zajmuję się tworzeniem stron internetowych
+          </h1>
+          <h2 className="is-size-3-desktop is-size-4-tablet is-size-5-mobile">
             Front End<span className="has-text-primary mx-2">|</span>Back End
             <span className="has-text-primary mx-2">|</span>
             Design
@@ -263,24 +298,32 @@ const Home = () => {
         </StyledSection>
 
         <DarkerSection right>
-          <StyledSection>
+          <AboutMeSection>
             <SectionTitle>Kilka słów o mnie</SectionTitle>
-            <StyledGatsbyImg
-              fluid={query.placeholderImage.childImageSharp.fluid}
-              alt="Tworzenie storny internetowej, laptop, notatnik i kubek"
-            />
-            <Paragraph className="has-text-centered mt-6">
-              Nazywam się{" "}
-              <span className="has-text-primary">Adrian Domański</span> i
-              mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem.
-              Interesują mnie nowe technologie i rozwiązania w świecie web
-              developmentu i branży IT. Tworzeniem stron internetowych zajmuję
-              się od 2 lat. Jako osoba wytrwała i sumienna w dążeniu do
-              wyznaczonych celów rozwijam swoją{" "}
-              <span className="has-text-primary">pasję</span> codzienną,
-              systematyczną pracą.
-            </Paragraph>
-          </StyledSection>
+            <div className="columns is-multiline mt-3">
+              <div className="column is-12-tablet is-4-desktop">
+                <FadeIn>
+                  <StyledAvatar
+                    fluid={query.placeholderImage.childImageSharp.fluid}
+                    alt="Moje zdjęcie w Hiszpanii"
+                  />
+                </FadeIn>
+              </div>
+              <div className="column">
+                <Paragraph className="has-text-left-desktop">
+                  Nazywam się{" "}
+                  <span className="has-text-primary">Adrian Domański</span> i
+                  mieszkam w Mosinie - niewielkim miasteczku pod Poznaniem.
+                  Interesują mnie nowe technologie i rozwiązania w świecie web
+                  developmentu i branży IT. Tworzeniem stron internetowych
+                  zajmuję się od 2 lat. Jako osoba wytrwała i sumienna w dążeniu
+                  do wyznaczonych celów rozwijam swoją{" "}
+                  <span className="has-text-primary">pasję</span> codzienną,
+                  systematyczną pracą.
+                </Paragraph>
+              </div>
+            </div>
+          </AboutMeSection>
         </DarkerSection>
         <StyledSection>
           <SectionTitle>Kontakt</SectionTitle>
@@ -289,7 +332,7 @@ const Home = () => {
             kontaktowe znajdziesz
             <Link
               to="/kontakt"
-              className="has-text-primary has-text-weight-bold has-text-underline"
+              className="has-text-primary has-text-weight-bold"
             >
               {" "}
               klikając tutaj

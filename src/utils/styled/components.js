@@ -11,6 +11,7 @@ export const StyledExternalLink = styled.a`
   color: ${({ theme }) => theme.colors.primary};
   text-decoration: underline;
   transition: color 0.1s ease-in-out;
+  word-break: break-word;
 
   :hover {
     color: #bf7b00;
@@ -72,7 +73,7 @@ export const Button = styled(Link).attrs({ className: "button" })`
     z-index: 1;
     display: table;
     position: relative;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     overflow: hidden;
     font-size: 1.3rem;
     letter-spacing: 1px;
@@ -80,12 +81,21 @@ export const Button = styled(Link).attrs({ className: "button" })`
     &.cta.pointer-active {
       pointer-events: all;
 
+      :before,
+      :after {
+        display: none;
+      }
+
+      :hover {
+        background: ${({ theme }) => theme.colors.primary};
+        color: black;
+      }
+
       ${({ theme }) => theme.media.desktop} {
         font-size: 1.5rem;
       }
     }
 
-    :focus,
     :active {
       border: 1px solid ${({ theme }) => theme.colors.primary};
       outline: none;
@@ -143,6 +153,7 @@ export const SectionTitle = withSensor(styled.h2`
   display: table;
   position: relative;
   margin: 0 auto;
+  font-weight: bold;
   margin-bottom: 72px;
 
   :before,

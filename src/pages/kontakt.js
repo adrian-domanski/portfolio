@@ -8,6 +8,7 @@ import {
   StyledColumn,
   StyledCard,
   StyledExternalLink,
+  BiggerStyledSection,
   FadeIn,
 } from "../utils/styled/components"
 import styled from "styled-components"
@@ -81,7 +82,7 @@ const Contact = () => {
     <Layout>
       <SEO title="Strony internetowe - Adrian Domański - Kontakt" />
       <StyledContactPage>
-        <StyledSection className="mb-6">
+        <StyledSection>
           <SectionTitle>Kontakt</SectionTitle>
           <Paragraph className="has-text-centered">
             Masz pomysł na nowy{" "}
@@ -91,7 +92,9 @@ const Contact = () => {
             na poniższy adres e-mail, napisz na facebooku lub skorzystaj z
             formularza kontaktowego.
           </Paragraph>
-          <div className="columns mt-6">
+        </StyledSection>
+        <BiggerStyledSection className="mb-6">
+          <div className="columns">
             <StyledColumn className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
@@ -156,7 +159,7 @@ const Contact = () => {
               </StyledCard>
             </StyledColumn>
           </div>
-        </StyledSection>
+        </BiggerStyledSection>
         <DarkerSection right>
           <StyledSection>
             <SectionTitle>Formularz kontaktowy</SectionTitle>
