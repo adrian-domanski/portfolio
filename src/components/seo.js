@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import banerIMG from "../images/baner.jpg"
 
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
@@ -39,6 +40,11 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: { banerIMG },
+        },
+        { property: `og:url`, content: "https://adrian-domanski.pl" },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -60,8 +66,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `viewport`,
-          content:
-            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+          content: "width=device-width, initial-scale=1.0",
         },
       ].concat(meta)}
     >
