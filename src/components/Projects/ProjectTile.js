@@ -40,7 +40,7 @@ const ProjectTile = ({ project, className }) => {
           </div>
           <div className="card-content">
             <div className="content">
-              <SectionSubtitle className="is-size-4 has-text-white-ter mb-0 has-text-weight-normal">
+              <SectionSubtitle className="has-text-white-ter mb-0 has-text-weight-normal">
                 {project.title}
               </SectionSubtitle>
             </div>

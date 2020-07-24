@@ -108,7 +108,7 @@ const StyledLogo = styled.img`
   height: 40px;
   margin: auto;
 
-  ${({ theme }) => theme.media.mobile} {
+  @media screen and (max-width: 1023px) {
     height: 30px;
   }
 `

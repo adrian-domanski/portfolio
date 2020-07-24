@@ -11,6 +11,7 @@ export const theme = {
   boxShadow: "5px 5px 20px 0px rgba(0, 0, 0, 0.1)",
   media: {
     desktop: "@media screen and (min-width: 1024px)",
-    mobile: "@media screen and (max-width: 1023px)",
+    tablet: "@media screen and (min-width: 769px)",
+    mobile: "@media screen and (max-width: 768px)",
   },
 }

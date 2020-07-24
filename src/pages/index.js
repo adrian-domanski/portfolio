@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
 
 const Header = styled.header`
   min-height: 600px;
-  height: 75vh;
+  height: 70vh;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -61,11 +61,6 @@ const Header = styled.header`
   }
 
   .header-content {
-    h1,
-    h2 {
-      color: #fff;
-    }
-
     letter-spacing: 1px;
     z-index: 2;
     position: relative;
@@ -78,6 +73,12 @@ const Header = styled.header`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 1rem;
+
+    h1,
+    h2 {
+      color: #fff;
+    }
 
     @media screen and (min-width: 600px) {
       font-size: 2rem;
@@ -87,6 +88,16 @@ const Header = styled.header`
       font-size: 2.1rem;
     }
   }
+
+  .home-page-header__particles {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 0;
+  }
+
   .background-filter {
     position: absolute;
     top: 0;
@@ -197,7 +208,7 @@ const Home = () => {
         </FadeIn>
       </Header>
       <StyledMain>
-        <StyledSection className="pb-0">
+        <StyledSection className="pb-5">
           <SectionTitle className="mt-5">Co oferuję?</SectionTitle>
 
           <Paragraph className="has-text-centered">
@@ -208,7 +219,7 @@ const Home = () => {
           </Paragraph>
         </StyledSection>
         <BiggerStyledSection>
-          <div className="columns">
+          <div className="columns mb-5">
             <StyledColumn className="column is-4-desktop">
               <StyledCard className="card">
                 <div className="card-content">
@@ -256,7 +267,7 @@ const Home = () => {
               </StyledCard>
             </StyledColumn>
           </div>
-          <Button to="/technologie" className="mb-5 center">
+          <Button to="/technologie" className="mb-6 center">
             Umiejętności
           </Button>
         </BiggerStyledSection>
@@ -315,8 +326,7 @@ const Home = () => {
                   Interesują mnie nowe technologie i rozwiązania w świecie web
                   developmentu i branży IT. Tworzeniem stron internetowych
                   zajmuję się od 2 lat. Jako osoba wytrwała i sumienna w dążeniu
-                  do wyznaczonych celów rozwijam swoją{" "}
-                  <span className="has-text-primary">pasję</span> codzienną,
+                  do wyznaczonych celów rozwijam swoją pasję codzienną,
                   systematyczną pracą.
                 </Paragraph>
               </div>
