@@ -12,6 +12,8 @@ This project was created in purpose to show my work and abilities.
 * Adobe XD
 * Netlify
 * Bulma
+* Contentful (CMS)
+* GraphQL
 
 
 ## Live demo
